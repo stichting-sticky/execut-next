@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Poppins", sans-serif;
+  --font-mono: "Space Mono", monospace;
+
+  /* Override default colors */
+  --color-*: initial;
+
+  --color-primary: oklch(64.4% 0.202 21);
+  --color-primary-lighter: oklch(72.3% 0.172 20.7);
+  --color-primary-highlight: oklch(85.7% 0.063 16);
+
+  --color-secondary: oklch(64.7% 0.089 184.7);
+  --color-secondary-lighter: oklch(78% 0.06 189.8);
+  --color-secondary-highlight: oklch(87.6% 0.048 188.1);
+
+  --color-tertiary: oklch(69.4% 0.082 315);
+  --color-tertiary-lighter: oklch(79.2% 0.064 314);
+  --color-tertiary-highlight: oklch(88.2% 0.051 321.5);
+
+  --color-accent: oklch(76.3% 0.145 55.8);
+  --color-accent-lighter: oklch(79.4% 0.118 57.5);
+  --color-accent-highlight: oklch(91.9% 0.098 61);
+
+  --color-foreground: oklch(21.4% 0.029 2.7);
+  --color-foreground-lighter: oklch(33.2% 0.028 11.7);
+  --color-foreground-highlight: oklch(40.3% 0.0415 5.45);
+
+  --color-background: oklch(98.8% 0.006 43.3);
+  --color-background-darker: oklch(95.5% 0.008 45.3);
+  --color-subtle-highlight: oklch(93.9% 0.011 10.3);
+
+  --animate-blink: blink 1s step-start infinite;
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+}
+
+@layer components {
+  ::selection {
+    background-color: var(--color-primary-lighter);
+    color: var(--color-background);
+
+    @variant dark {
+      background-color: var(--color-tertiary);
+    }
+  }
+}

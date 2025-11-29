@@ -1,0 +1,66 @@
+---
+import "@fontsource/poppins";
+import "@fontsource/space-mono";
+
+import "../styles/global.css";
+
+type Props = {
+  title?: string;
+};
+
+const { title = "A conference for and by IT students" } = Astro.props;
+
+const keywords = [
+  "exec(ut)",
+  "execut",
+  "execute",
+  "conference",
+  "congress",
+  "symposium",
+  "Utrecht",
+  "stichting",
+  "studie",
+  "studievereniging",
+  "Sticky",
+  "IT",
+  "tech",
+  "technology",
+  "software",
+  "student",
+  "students",
+  "computer",
+  "information",
+  "science",
+  "sciences",
+  "university",
+];
+---
+
+<html lang="en" class="text-foreground dark:text-background-darker antialiased">
+
+<head>
+  <meta charset="utf-8" />
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <meta name="theme-color" content="oklch(72.3% 0.172 20.7)" />
+  <meta name="color-scheme" content="light dark" />
+
+  <meta name="author" content="Stichting Sticky" />
+  <meta name="keywords" content={keywords.join()} />
+  <meta name="description" content="exec(ut) is a conference for and by IT students" />
+
+  <meta name="generator" content={Astro.generator} />
+
+  <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+
+  <title>{`${title} | exec(ut)`}</title>
+</head>
+
+<body class="bg-background dark:bg-foreground-lighter">
+  <slot />
+</body>
+
+</html>

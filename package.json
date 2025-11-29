@@ -1,0 +1,24 @@
+{
+  "name": "execut",
+  "license": "MIT",
+  "type": "module",
+  "homepage": "https://execut.nl/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stichting-sticky/execut.git"
+  },
+  "author": "Semele <hello@semele.fyi>",
+  "private": true,
+  "scripts": {
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@fontsource/poppins": "^5.2.7",
+    "@fontsource/space-mono": "^5.2.9",
+    "@tailwindcss/vite": "^4.1.17",
+    "astro": "^5.16.2",
+    "tailwindcss": "^4.1.17"
+  }
+}
