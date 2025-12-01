@@ -39,14 +39,3 @@
     }
   }
 }
-
-@layer components {
-  ::selection {
-    background-color: var(--color-primary-lighter);
-    color: var(--color-background);
-
-    @variant dark {
-      background-color: var(--color-tertiary);
-    }
-  }
-}
