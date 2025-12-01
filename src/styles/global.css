@@ -1,5 +1,41 @@
 @import "tailwindcss";
 
+/* Extend preflight */
+@layer base {
+  :root,
+  :host {
+    text-size-adjust: none;
+    hanging-punctuation: first allow-end last;
+  }
+
+  /* Avoid text overflows */
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  span {
+    overflow-wrap: break-word;
+  }
+
+  /* Improve line wrapping */
+  p {
+    hyphens: auto;
+    text-wrap: pretty;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
+}
+
 @theme {
   --font-sans: "Poppins", sans-serif;
   --font-mono: "Space Mono", monospace;
