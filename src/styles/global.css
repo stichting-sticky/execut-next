@@ -7,29 +7,29 @@
   /* Override default colors */
   --color-*: initial;
 
-  --color-primary: oklch(64.4% 0.202 21);
-  --color-primary-lighter: oklch(72.3% 0.172 20.7);
-  --color-primary-highlight: oklch(85.7% 0.063 16);
+  --color-primary: oklch(64.4% 0.202 21); /* = #ef4855 */
+  --color-primary-lighter: oklch(72.3% 0.172 20.7); /* = #ff7276 */
+  --color-primary-highlight: oklch(85.7% 0.063 16); /* = #f7c0c2 */
 
-  --color-secondary: oklch(64.7% 0.089 184.7);
-  --color-secondary-lighter: oklch(78% 0.06 189.8);
-  --color-secondary-highlight: oklch(87.6% 0.048 188.1);
+  --color-secondary: oklch(64.7% 0.089 184.7); /* = #44a095 */
+  --color-secondary-lighter: oklch(78% 0.06 189.8); /* = #8ac4c0 */
+  --color-secondary-highlight: oklch(87.6% 0.048 188.1); /* = #b3e1dc */
 
-  --color-tertiary: oklch(69.4% 0.082 315);
-  --color-tertiary-lighter: oklch(79.2% 0.064 314);
-  --color-tertiary-highlight: oklch(88.2% 0.051 321.5);
+  --color-tertiary: oklch(69.4% 0.082 315); /* = #b08dc0 */
+  --color-tertiary-lighter: oklch(79.2% 0.064 314); /* = #cab0d8 */
+  --color-tertiary-highlight: oklch(88.2% 0.051 321.5); /* = #e8ceed */
 
-  --color-accent: oklch(76.3% 0.145 55.8);
-  --color-accent-lighter: oklch(79.4% 0.118 57.5);
-  --color-accent-highlight: oklch(91.9% 0.098 61);
+  --color-accent: oklch(76.3% 0.145 55.8); /* = #f7974d */
+  --color-accent-lighter: oklch(79.4% 0.118 57.5); /* = #f5a86d */
+  --color-accent-highlight: oklch(91.9% 0.098 61); /* = #ffd9ae */
 
-  --color-foreground: oklch(21.4% 0.029 2.7);
-  --color-foreground-lighter: oklch(33.2% 0.028 11.7);
-  --color-foreground-highlight: oklch(40.3% 0.0415 5.45);
+  --color-foreground: oklch(21.4% 0.029 2.7); /* = #241318 */
+  --color-foreground-lighter: oklch(33.2% 0.028 11.7); /* = #433032 */
+  --color-foreground-highlight: oklch(40.3% 0.0415 5.45); /* = #5c3f45 */
 
-  --color-background: oklch(98.8% 0.006 43.3);
-  --color-background-darker: oklch(95.5% 0.008 45.3);
-  --color-subtle-highlight: oklch(93.9% 0.011 10.3);
+  --color-background: oklch(98.8% 0.006 43.3); /* = #fffaf8 */
+  --color-background-darker: oklch(95.5% 0.008 45.3); /* = #f5efec */
+  --color-subtle-highlight: oklch(93.9% 0.011 10.3); /* = #f2e8e9 */
 
   --animate-blink: blink 1s step-start infinite;
 
