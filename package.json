@@ -10,11 +10,13 @@
   "author": "Semele <hello@semele.fyi>",
   "private": true,
   "scripts": {
-    "start": "astro dev",
+    "start": "astro check --watch & astro dev",
     "build": "astro build",
+    "check": "astro check",
     "preview": "astro preview"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.6",
     "@astrojs/sitemap": "^3.6.0",
     "@fontsource/poppins": "^5.2.7",
     "@fontsource/space-mono": "^5.2.9",
