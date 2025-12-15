@@ -15,7 +15,7 @@ const {
   ...attributes
 } = Astro.props;
 
-attributes.class ??= "bg-background dark:bg-foreground-lighter";
+attributes.class ??= "bg-background dark:bg-foreground-lighter flex min-h-screen flex-col";
 
 const keywords = [
   "exec(ut)",
@@ -49,6 +49,10 @@ const keywords = [
   <meta charset="utf-8" />
 
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/icon-180x180.png" />
+
+  <link rel="manifest" href="/manifest.json" />
 
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
