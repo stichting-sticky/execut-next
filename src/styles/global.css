@@ -67,6 +67,11 @@
   --color-background-darker: oklch(95.5% 0.008 45.3); /* = #f5efec */
   --color-subtle-highlight: oklch(93.9% 0.011 10.3); /* = #f2e8e9 */
 
+  --color-black: #000;
+  --color-white: #fff;
+
+  --color-current: currentColor;
+
   --animate-blink: blink 1s step-start infinite;
 
   @keyframes blink {
