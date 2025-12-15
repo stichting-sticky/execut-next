@@ -80,3 +80,12 @@
     }
   }
 }
+
+@import "./utilities/heading.css";
+@import "./utilities/typography.css";
+@import "./utilities/rule.css";
+@import "./utilities/quote.css";
+@import "./utilities/fenced.css";
+@import "./utilities/link.css";
+@import "./utilities/enum.css";
+@import "./utilities/list.css";

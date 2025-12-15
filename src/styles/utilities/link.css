@@ -1,0 +1,22 @@
+@utility link {
+  color: var(--color-secondary);
+  hyphens: none;
+  text-decoration: underline --alpha(var(--color-current) / 40%) 2px;
+  text-underline-offset: 2px;
+  transition: color var(--default-transition-duration)
+    var(--default-transition-timing-function);
+
+  @variant dark {
+    color: var(--color-secondary-lighter);
+  }
+
+  @variant hover {
+    opacity: 80%;
+  }
+
+  @variant focus {
+    opacity: 60%;
+    outline: 2px solid;
+    outline-offset: 2px;
+  }
+}

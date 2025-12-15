@@ -1,0 +1,9 @@
+@utility rule {
+  border-top: 1px solid var(--color-subtle-highlight);
+  margin-block: --spacing(4);
+  display: block;
+
+  @variant dark {
+    border-color: var(--color-foreground);
+  }
+}

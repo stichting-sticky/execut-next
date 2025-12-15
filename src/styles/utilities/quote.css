@@ -1,0 +1,15 @@
+@utility quote {
+  p {
+    font-size: var(--text-4xl);
+    font-weight: var(--font-weight-bold);
+    text-align: center;
+
+    @variant before {
+      content: "“"
+    }
+
+    @variant after {
+      content: "”"
+    }
+  }
+}

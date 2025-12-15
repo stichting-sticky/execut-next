@@ -1,0 +1,59 @@
+@utility par {
+  line-height: var(--leading-relaxed);
+  margin-bottom: --spacing(2);
+
+  @variant last {
+    margin-bottom: --spacing(0);
+  }
+
+  @variant lg {
+    margin-bottom: --spacing(4);
+  }
+}
+
+@utility del {
+  text-decoration: line-through var(--color-primary-lighter) 2px;
+}
+
+@utility ins {
+  text-decoration: underline wavy var(--color-tertiary) 2px;
+  text-underline-offset: 2px;
+
+  @variant dark {
+    text-decoration-color: var(--color-tertiary-lighter);
+  }
+}
+
+@utility mark {
+  background-color: var(--color-accent-highlight);
+
+  @variant dark {
+    background-color: var(--color-accent-lighter);
+  }
+}
+
+@utility abbr {
+  cursor: help;
+  text-decoration: underline dotted var(--color-secondary) 2px;
+  text-underline-offset: 4px;
+
+  @variant dark {
+    text-decoration-color: var(--color-secondary-lighter);
+  }
+}
+
+@utility code {
+  background-color: var(--color-subtle-highlight);
+  color: var(--color-foreground);
+
+  &::before,
+  &::after {
+    content: "`";
+    font-weight: var(--font-weight-bold);
+  }
+
+  @variant dark {
+    background-color: var(--color-foreground);
+    color: var(--color-subtle-highlight);
+  }
+}

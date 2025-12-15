@@ -1,0 +1,15 @@
+@utility enum {
+  list-style-type: decimal;
+  list-style-position: inside;
+  margin-left: --spacing(2);
+
+  @variant marker {
+    color: var(--color-tertiary);
+    font-family: var(--font-mono);
+    font-weight: var(--font-weight-bold);
+
+    @variant dark {
+      color: var(--color-tertiary-lighter);
+    }
+  }
+}

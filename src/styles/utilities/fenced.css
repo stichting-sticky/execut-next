@@ -1,0 +1,28 @@
+@utility fenced {
+  @apply par;
+
+  /* `background` and `color` must be set with `!important` to override default styles */
+  background-color: var(--color-subtle-highlight) !important;
+  color: var(--color-foreground) !important;
+  padding: --spacing(1);
+  white-space: pre-wrap;
+
+  &::before,
+  &::after {
+    content: "```";
+    font-weight: var(--font-weight-bold);
+  }
+
+  code {
+    display: block;
+  }
+
+  @variant dark {
+    background-color: var(--color-foreground) !important;
+    color: var(--color-subtle-highlight) !important;
+  }
+
+  @variant focus {
+    outline: none;
+  }
+}
