@@ -1,0 +1,43 @@
+name: exec(ut) 2026
+date: 2026-03-26
+# tickets: https://tickets.execut.nl/2026/
+notification:
+  message: |
+    Join our launch
+    7 January 2026 17:30
+    De Vagant
+  anchor: https://koala.svsticky.nl/activities/2152
+incentives:
+  - [ topics, diverse IT-related talks ]
+  - [ speakers, 6 ]
+  - [ networking, ample opportunities ]
+  - [ attendees, 400+ ]
+  - [ location, Utrecht ]
+committee:
+  - name: Sem van Nieuwenhuizen
+    role: chair
+    contact: https://www.linkedin.com/in/leuke-naam/
+  - name: Marcel van Laar
+    role: treasurer
+    contact: https://www.linkedin.com/in/marcel-van-laar-b071b7258/
+  - name: Thijs Olijerhoek
+    role: acquisition
+    contact: https://www.linkedin.com/in/thijs-olijerhoek-a4b203236/
+  - name: Willem Haans
+    role: acquisition
+    contact: https://www.linkedin.com/in/whaans/
+  - name: Robert Karzijn
+    role: speakers
+    contact: https://www.linkedin.com/in/robert-karzijn-260696279/
+  - name: Joshua Oudshorn
+    role: speakers
+    contact: https://www.linkedin.com/in/joshua-oudshoorn-5a8abb293/
+  - name: Tieeny Chao
+    role: location
+    contact: https://www.linkedin.com/in/tieeny-chao-5642b5251/
+  - name: Thom Bongaards
+    role: promotion
+    contact: https://www.linkedin.com/in/thombongaards/
+  - name: Joep Swinkels
+    role: board
+    contact: https://www.linkedin.com/in/joep-swinkels/

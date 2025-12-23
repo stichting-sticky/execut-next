@@ -1,0 +1,109 @@
+name: exec(ut) 2023
+date: 2023-03-28
+highlights: https://www.youtube.com/watch?v=kzIJxFxOAjs
+programme:
+  - time: 09:00
+    organizational: Registration
+  - time: 10:00
+    organizational: Opening
+  - time: 10:15
+    activities:
+      - type: talk
+        activity: what-does-it-mean-for-image-generation-to-be-responsible
+  - time: 11:15
+    activities:
+      - type: talk
+        activity: immersive-technology-transforming-internet
+  - time: 12:00
+    organizational: Lunch
+  - time: 12:45
+    activities:
+      - type: talk
+        activity: the-fun-of-programming
+      - type: workshop
+        activity: low-code-with-pega
+  - time: 13:30
+    activities:
+      - type: talk
+        activity: playful-digital-user-experiences
+  - time: 14:15
+    activities:
+      - type: talk
+        activity: european-values-maps-visualization-of-large-opinion-spaces
+      - type: workshop
+        activity: knowledge-session-with-levarne
+  - time: 14:55
+    organizational: Coffee
+  - time: 15:25
+    activities:
+      - type: talk
+        activity: towards-volumetric-video-conferencing
+      - type: workshop
+        activity: deep-dive-into-scrum-and-agile
+  - time: 16:15
+    activities:
+      - type: talk
+        activity: procedural-content-creation-at-ea
+  - time: 17:10
+    organizational: Closing & Drinks
+talks:
+  - what-does-it-mean-for-image-generation-to-be-responsible
+  - immersive-technology-transforming-internet
+  - the-fun-of-programming
+  - playful-digital-user-experiences
+  - european-values-maps-visualization-of-large-opinion-spaces
+  - towards-volumetric-video-conferencing
+  - procedural-content-creation-at-ea
+speakers:
+  - burcu-karagol-ayan
+  - tim-van-der-wiel
+  - rik-arends
+  - koen-de-geringel
+  - tamara-mchedlidze
+  - pablo-cesar
+  - mat-suarez
+hosts:
+  - juney-dijkstra
+workshops:
+  - low-code-with-pega
+  - knowledge-session-with-levarne
+  - deep-dive-into-scrum-and-agile
+partners:
+  platinum:
+    - bpm-company
+  gold:
+    - chipsoft
+    - levarne
+    - sticky
+  silver:
+    - bol-com
+    - cgi
+    - devoteam
+    - dsw
+    - linkit
+    - thales
+  bronze:
+    - asml
+venue: de-kom
+committee:
+  - name: Jorden Bakker
+    role: chair
+    contact: https://www.linkedin.com/in/jorden-bakker-b7300079/
+  - name: Julian Verouden
+    role: treasurer
+    contact: https://www.linkedin.com/in/julian-verouden-5798791bb/
+  - name: Sem van Nieuwenhuizen
+    role: acquisition
+    contact: https://www.linkedin.com/in/leuke-naam/
+  - name: Jasper de Winther
+    role: speakers
+    contact: https://www.linkedin.com/in/jasper-de-winther-091228187/
+  - name: Lisanne Koetsier
+    role: location
+    contact: https://www.linkedin.com/in/lisanne-koetsier/
+  - name: Ruben Baggen
+    role: promotion
+    contact: https://www.linkedin.com/in/ruben-baggen/
+  - name: Thirza Hiwat
+    role: board
+    contact: https://www.linkedin.com/in/thiwat/

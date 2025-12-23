@@ -1,0 +1,111 @@
+name: exec(ut) 2018
+date: 2018-04-23
+highlights: https://www.youtube.com/watch?v=o0AO_4QvtgU
+programme:
+  - time: 09:30
+    organizational: Registration and coffee
+  - time: 10:00
+    organizational: Opening and welcome
+  - time: 10:15
+    activities:
+      - type: talk
+        activity: data-sketches-a-year-of-exotic-data-visualizations
+  - time: 11:00
+    activities:
+      - type: talk
+        activity: digitizing-your-old-8mm-films-with-a-pi
+  - time: 11:30
+    activities:
+      - type: talk
+        activity: privacy-digital-crime-and-espionage
+  - time: 12:00
+    organizational: Lunch
+  - time: 13:00
+    activities:
+      - type: talk
+        activity: priming-and-persuasive-technology
+  # - time: 13:30
+  #   activities:
+  #     type: talk
+  #       activity: problem-solving-based-on-forensic-science
+  - time: 14:00
+    activities:
+      - type: talk
+        activity: production-an-owners-manual
+  - time: 14:30
+    organizational: Coffee break
+  - time: 15:00
+    activities:
+      - type: talk
+        activity: power-of-ux-research
+  - time: 15:30
+    activities:
+      - type: talk
+        activity: winter-olympics-2018
+  - time: 16:00
+    activities:
+      - type: talk
+        activity: unlikely-wisdom-of-historical-stabbings
+  - time: 16:45
+    organizational: Closing and drinks
+talks:
+  - data-sketches-a-year-of-exotic-data-visualizations
+  - digitizing-your-old-8mm-films-with-a-pi
+  - privacy-digital-crime-and-espionage
+  - priming-and-persuasive-technology
+  # - problem-solving-based-on-forensic-science
+  - production-an-owners-manual
+  - power-of-ux-research
+  - winter-olympics-2018
+  - unlikely-wisdom-of-historical-stabbings
+speakers:
+  - nadieh-bremer
+  - jago-de-vreede
+  - arjen-kamphuis
+  - mischa-coster
+  - igor
+  # - tom-driehuys
+  - fabian-van-noort
+  - paul-lemon
+  - ross-tuck
+hosts:
+  - bruno-lauwers
+partners:
+  platinum:
+    - pwc
+  gold:
+    - chipsoft
+    - nedap
+  silver:
+    - topicus
+    - quintor
+    - capgemini
+    - ing
+  bronze:
+    - asml
+    - brunel
+venue: jaarbeurs
+committee:
+  - name: Rob de Wit
+    role: chair
+    contact: https://www.rcdewit.nl/
+  - name: Danny Knemeijer
+    role: treasurer
+    contact: https://www.linkedin.com/in/danny-knemeijer-a6b12569/
+  - name: Alma Liezenga
+    role: acquisition
+    contact: https://www.linkedin.com/in/alma-liezenga-1387729a/
+  - name: Laurens Duijvesteijn
+    role: speakers
+    contact: https://www.linkedin.com/in/laurens-duijvesteijn-12345678/
+  - name: Bianca Beerepoot
+    role: location
+    contact: https://www.linkedin.com/in/bianca-beerepoot-87654321/
+  - name: Zoë Coenen
+    role: promotion
+    contact: https://www.linkedin.com/in/zoe-coenen-13579246/
+acknowledgements: |
+  DomCode, for letting us rip-off their code of conduct;
+  Ross Tuck, for his invaluable tips and tricks about organising conferences;
+  Forel Logistiek, for providing us with a van and driver;
+  and Emiel van Rijn, for bringing us together.

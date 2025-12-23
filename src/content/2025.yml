@@ -1,0 +1,113 @@
+name: exec(ut) 2025
+date: 2025-03-25
+highlights: https://www.youtube.com/watch?v=Jhsj4kM0DNc
+tickets: https://tickets.execut.nl/2025/
+programme:
+  - time: 09:00
+    organizational: Registration
+  - time: 09:45
+    organizational: Opening
+  - time: 10:15
+    activities:
+      - type: talk
+        activity: how-to-be-a-rockstar-developer
+  - time: 11:10
+    organizational: Coffee
+  - time: 11:40
+    activities:
+      - type: talk
+        activity: digital-transformation-of-air-power
+      - type: workshop
+        activity: bring-your-avatar-to-life-with-agentic-ai
+  - time: 12:20
+    organizational: Lunch
+  - time: 13:20
+    activities:
+      - type: talk
+        activity: exploring-the-dutch-games-industry
+      - type: workshop
+        activity: transform-healthcare-with-smart-ict
+  - time: 14:10
+    activities:
+      - type: talk
+        activity: rehabilitation-technologies
+      - type: workshop
+        activity: turn-ideas-into-reality-with-pega-genai-blueprint
+  - time: 14:50
+    organizational: Coffee
+  - time: 15:20
+    activities:
+      - type: talk
+        activity: got-a-problem-serious-gaming-is-here-to-help
+  - time: 16:10
+    activities:
+      - type: talk
+        activity: validation-crisis
+  - time: 17:00
+    organizational: Closing
+  - time: 17:15
+    organizational: Drinks
+talks:
+  - how-to-be-a-rockstar-developer
+  - digital-transformation-of-air-power
+  - exploring-the-dutch-games-industry
+  - rehabilitation-technologies
+  - got-a-problem-serious-gaming-is-here-to-help
+  - validation-crisis
+speakers:
+  - dylan-beattie
+  - maikel-meeuwse
+  - hans-rietman
+  - martine-spaans
+  - evert-hoogendoorn
+  - brenno-de-winter
+hosts:
+  - fiep-warmerdam
+workshops:
+  - bring-your-avatar-to-life-with-agentic-ai
+  - transform-healthcare-with-smart-ict
+  - turn-ideas-into-reality-with-pega-genai-blueprint
+partners:
+  platinum:
+    - chipsoft
+  gold:
+    - bpm-company
+    - devoteam
+    - sticky
+  silver:
+    - sogeti
+    - yer
+    - incontrol
+    - anderson-macgyver
+  introduction:
+    - valcon
+    - slimstock
+venue: tivoli-vredenburg
+committee:
+  - name: Thomas Valkenburg
+    role: chair
+    contact: https://www.linkedin.com/in/thomas-valkenburg/
+  - name: Björn Koemans
+    role: treasurer
+    contact: https://www.linkedin.com/in/bjornkoemans/
+  - name: Casper van Wetten
+    role: acquisition
+    contact: https://www.linkedin.com/in/covanwetten/
+  - name: Isabelle Wittebols
+    role: acquisition
+    contact: https://www.linkedin.com/in/isabelle-wittebols-277407255/
+  - name: Joep Swinkels
+    role: speakers
+    contact: https://www.linkedin.com/in/joep-swinkels-9a8553227/
+  - name: Lotte Consten
+    role: speakers
+    contact: https://www.linkedin.com/in/lotte-consten-30082223b/
+  - name: Marijn Helwerda
+    role: location
+    contact: https://www.linkedin.com/in/marijn-helwerda-898119176/
+  - name: Tomas Meeuwse
+    role: promotion
+    contact: https://www.linkedin.com/in/tomas-meeuwse-6a622420b/
+  - name: Maureen van Veen
+    role: board
+    contact: https://www.linkedin.com/in/maureen-van-veen-9a3730222/

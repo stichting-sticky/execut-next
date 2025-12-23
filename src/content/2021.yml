@@ -1,0 +1,79 @@
+name: exec(ut) Summer Edition
+date: 2021-06-07
+programme:
+  - time: 12:00
+    organizational: Opening and welcome
+  - time: 12:15
+    activities:
+      - type: talk
+        activity: codepamoja-workpamoja
+  - time: 12:55
+    activities:
+      - type: talk
+        activity: augmented-intelligence-in-healthcare
+  - time: 13:35
+    organizational: Coffee
+  - time: 14:45
+    activities:
+      - type: talk
+        activity: games-code-but-not-code
+  - time: 15:25
+    activities:
+      - type: talk
+        activity: human-centered-ai
+  - time: 16:10
+    organizational: Closing & Drinks
+talks:
+  - codepamoja-workpamoja
+  - augmented-intelligence-in-healthcare
+  - games-code-but-not-code
+  - human-centered-ai
+speakers:
+  - andy-haxby
+  - marc-somberg
+  - rami-ismail
+  - nathalie-post
+hosts:
+  - sara-lusini
+partners:
+  platinum:
+    - chipsoft
+  gold:
+    - bpm-company
+    - sticky
+  silver:
+    - sogeti
+    - picnic
+    - optiver
+venue: social-impact-factory
+committee:
+  - name: Simardeep Singh
+    role: chair
+    contact: https://www.linkedin.com/in/simardeepsinghlidhar/
+  - name: Jari van Wijk
+    role: treasurer
+    contact: https://www.linkedin.com/in/jarivw/
+  - name: Ceylan Albrecht
+    role: acquisition
+    contact: https://www.linkedin.com/in/ceylan-albrecht/
+  - name: Nena Schuitemaker
+    role: acquisition
+    contact: https://www.linkedin.com/in/nena-schuitemaker-94240619a
+  - name: Nicole van den Dries
+    role: speakers
+    contact: https://www.linkedin.com/in/nicole-van-den-dries-8a250a177
+  - name: Daniek Garst
+    role: location
+    contact: https://www.linkedin.com/in/daniek-garst-759671197
+  - name: Victor Paalman
+    role: promotion
+    contact: https://nl.linkedin.com/in/victor-paalman-aa13b0162
+  - name: Zoë Coenen
+    role: board
+    contact: https://www.linkedin.com/in/zoe-coenen/
+acknowledgements: |
+  DomCode, for letting us take inspiration from their code of conduct;
+  Simpact, for helping us navigate the world of CO2 compensation;
+  Martijn Casteel and Amber Norder for programming the very first exec(ut) app;
+  and the staff of Utrecht University's CS department for their support in planning and promotion.
+recap: https://www.youtube.com/watch?v=v4tcK13Gu9M

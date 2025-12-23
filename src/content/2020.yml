@@ -1,0 +1,105 @@
+name: exec(ut) 2020
+date: 2020-03-16
+programme:
+  - time: 09:00
+    organizational: Registration
+  - time: 09:45
+    organizational: Opening
+  - time: 10:00
+    activities:
+      - type: talk
+        activity: bigquery-ml
+  - time: 10:50
+    organizational: Coffee
+  - time: 11:20
+    activities:
+      - type: talk
+        activity: designing-with-the-colorblind-in-mind
+  - time: 12:00
+    activities:
+      - type: talk
+        activity: how-devops-can-improve-your-work-company-and-career
+  - time: 12:30
+    organizational: Lunch
+  - time: 13:20
+    activities:
+      - type: talk
+        activity: code-as-a-tool-for-creative-expression
+  - time: 14:00
+    activities:
+      - type: talk
+        activity: technology-behind-quantitative-trading
+  - time: 14:30
+    organizational: Coffee
+  - time: 15:00
+    activities:
+      - type: talk
+        activity: journey-to-diversity-and-inclusion
+  - time: 15:40
+    activities:
+      - type: talk
+        activity: focus-startup-success
+  - time: 16:30
+    organizational: Closing & Drinks
+talks:
+  - bigquery-ml
+  - designing-with-the-colorblind-in-mind
+  - how-devops-can-improve-your-work-company-and-career
+  - code-as-a-tool-for-creative-expression
+  - technology-behind-quantitative-trading
+  - journey-to-diversity-and-inclusion
+  - focus-startup-success
+speakers:
+  - gabriela-davila-ferrara
+  - tom-van-beveren
+  - simon-ostengaard
+  - joost-van-dongen
+  - dennis-fleurbaaij
+  - lisanne-brons
+  - patrick-lee
+hosts:
+  - chris-janssen
+partners:
+  platinum:
+    - keylane
+  gold:
+    - optiver
+    - emergo
+    - sticky
+  silver:
+    - tno
+    - leaseweb
+    - dnb
+    - dsw
+    - procam
+  bronze:
+    - asml
+    - ingram
+venue: jaarbeurs
+committee:
+  - name: Kristi Bergman
+    role: chair
+    contact: https://www.linkedin.com/in/kristi-bergman-77bb16129/
+  - name: Anneloes Meijer
+    role: treasurer
+    contact: https://www.linkedin.com/in/anneloes-meijer-539254108/
+  - name: Simardeep Singh
+    role: acquisition
+    contact: https://www.linkedin.com/in/simardeepsinghlidhar/
+  - name: Diede van der Hoorn
+    role: speakers
+    contact: https://www.linkedin.com/in/diede-van-der-hoorn/
+  - name: Rogier Simons
+    role: speakers
+    contact: https://www.linkedin.com/in/rogier-simons-utrecht/
+  - name: Amber Norder
+    role: location
+    contact: https://www.linkedin.com/in/amber-norder-091a38115/
+  - name: Thomas Hes
+    role: promotion
+    contact: https://thomashes.nl/
+acknowledgements: |
+  DomCode, for letting us take inspiration from their code of conduct;
+  Simpact, for helping us navigate the world of CO2 compensation;
+  Martijn Casteel and Amber Norder for programming the very first exec(ut) app;
+  and the staff of Utrecht University's CS department for their support in planning and promotion.
