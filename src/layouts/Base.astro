@@ -6,16 +6,18 @@ import "@fontsource/space-mono";
 
 import "@styles/global.css";
 
+import { current } from "@content";
+
 type Props = HTMLAttributes<"body"> & {
   title?: string;
+  year?: string;
 };
 
 const {
   title = "A conference for and by IT students",
+  year = current.id,
   ...attributes
 } = Astro.props;
-
-attributes.class ??= "bg-background dark:bg-foreground-lighter flex min-h-screen flex-col";
 
 const keywords = [
   "exec(ut)",
@@ -68,10 +70,10 @@ const keywords = [
   <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
   <link rel="sitemap" href="/sitemap-index.xml" />
 
-  <title>{`${title} | exec(ut)`}</title>
+  <title>{`${title} | exec(ut) ${year}`}</title>
 </head>
 
-<body {...attributes}>
+<body class:list={["bg-background dark:bg-foreground-lighter flex min-h-screen flex-col", attributes.class]} {...attributes}>
   <slot />
 </body>
 
