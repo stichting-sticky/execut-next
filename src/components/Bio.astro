@@ -1,0 +1,48 @@
+---
+import { type CollectionEntry, getCollection, render } from "astro:content";
+
+import Card from "@components/Card.astro";
+import Description from "@components/Description.astro";
+import Formatted from "@components/Formatted.astro";
+import Portrait from "@components/Portrait.astro";
+import Socials from "@components/Socials.astro";
+import Subheading from "@components/Subheading.astro";
+
+type Props = {
+  person: CollectionEntry<"people">;
+};
+
+const { person } = Astro.props;
+
+const { name, description, portrait, contact } = person.data;
+
+const talks = await getCollection("talks");
+const talk = talks.find((talk) => talk.data.speaker.id === person.id);
+
+const { title } = talk?.data || {};
+
+let anchor = talk && `/talks/${talk.id}`;
+
+// If the current page points to the talk page, remove the link
+if (Astro.url.pathname === anchor) anchor = undefined;
+
+const { Content } = await render(person);
+---
+
+<Card>
+  <div class="md:min-h-64">
+    {portrait && <Portrait portrait={portrait} name={name} />}
+
+    <Subheading anchor={anchor}>{name}</Subheading>
+
+    {contact && <Socials contact={contact} />}
+
+    {description && <Description description={description} />}
+
+    <Formatted>
+      <Content />
+    </Formatted>
+
+    {anchor && <a class="link before:font-mono before:content-['>>=_']" href={anchor}>{title}</a>}
+  </div>
+</Card>

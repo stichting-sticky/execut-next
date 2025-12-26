@@ -1,0 +1,50 @@
+---
+import { getEntries } from "astro:content";
+
+import Layout from "@layouts/Base.astro";
+
+import Bio from "@components/Bio.astro";
+import Button from "@components/Button.astro";
+import Paragraph from "@components/Paragraph.astro";
+import Section from "@components/Section.astro";
+import Strike from "@components/Strike.astro";
+
+import { current, previous } from "@content";
+
+const { programme, speakers, hosts } = current.data;
+
+let people = await getEntries((speakers ?? []).concat(hosts ?? []));
+
+// Propulate people with the previous edition's speakers if the current edition has not announced theirs
+if (!speakers) people = await getEntries(previous.data.speakers ?? []);
+---
+
+<Layout title="Speakers && Hosts">
+  <Section heading="Speakers && Hosts">
+    {speakers && (
+      <Paragraph>
+        Our speakers come from a wide variety of backgrounds and will be presenting an equally wide variety of interesting talks. Below you can find their bios and talk-abstracts, providing you with a sneak peek into their presentations.
+      </Paragraph>
+    )}
+
+    {!speakers && (
+      <Paragraph>
+        Our speakers come from a wide variety of backgrounds and will be presenting an equally wide variety of interesting talks. <Strike>Below you can find their bios and talk-abstracts, providing you with a sneak peek into their presentations.</Strike> The speakers and talks for this edition have not yet been announced; please check back later. Instead, to whet your appetite, here is a list of some of the speakers from the previous edition.
+      </Paragraph>
+
+      <Paragraph>
+        If you are interested in speaking on exec(ut), please reach out! You can contact us at <a class="link" href="mailto:speakers@execut.nl">speakers@execut.nl</a>.
+      </Paragraph>
+    )}
+
+    <div class="mb-2 sm:mb-4">
+      <Button as="a" href={programme && "/programme"}>
+        <span class="before:content-['??=_']">
+          View full programme
+        </span>
+      </Button>
+    </div>
+
+    {people.map((person) => <Bio person={person} />)}
+  </Section>
+</Layout>

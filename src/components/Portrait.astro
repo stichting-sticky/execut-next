@@ -1,0 +1,16 @@
+---
+import { type ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+type Props = {
+  portrait: ImageMetadata;
+  name: string;
+};
+
+const { portrait, name } = Astro.props;
+---
+
+<Image
+  class="mb-4 aspect-square w-full object-cover shadow-2xl sm:mb-2 sm:w-64 sm:group-odd:float-left sm:group-odd:mr-2 sm:group-even:float-right sm:group-even:ml-2"
+  src={portrait}
+  alt={name} />

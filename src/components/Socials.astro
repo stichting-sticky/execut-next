@@ -1,0 +1,22 @@
+---
+import { type Contact } from "@content";
+
+type Props = {
+  contact: Contact;
+};
+
+const { contact } = Astro.props;
+
+const { website, mail, socials } = contact;
+
+const links = Object.entries(socials || {});
+
+if (mail) links.unshift(["mail", `mailto:${mail}`]);
+if (website) links.unshift(["website", website]);
+---
+
+<div class="flex gap-2 not-last:mb-2">
+  {links.map(([platform, anchor]) => (
+    <a class="link font-mono font=bold" href={anchor}>{platform}</a>
+  ))}
+</div>
