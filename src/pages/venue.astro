@@ -1,0 +1,70 @@
+---
+import { Image } from "astro:assets";
+import { getEntry, render } from "astro:content";
+
+import Layout from "@layouts/Base.astro";
+
+import Button from "@components/Button.astro";
+import Figure from "@components/Figure.astro";
+import Formatted from "@components/Formatted.astro";
+import Paragraph from "@components/Paragraph.astro";
+import Section from "@components/Section.astro";
+
+import { current } from "@content";
+
+const { venue } = current.data;
+---
+
+<Layout title="Venue">
+  {venue && await getEntry(venue).then(async (venue) => {
+    const { name, image, address, directions, embed } = venue.data;
+
+    const { Content } = await render(venue);
+
+    return (
+      <Figure caption={name}>
+        <div class="relative shadow-2xl">
+          <Image src={image} alt="Venue" />
+        </div>
+      </Figure>
+
+      <Section>
+        <div class="gap-4 flex flex-col lg:flex-row">
+          <div class="w-54 lg:order-last">
+            <address class="mb-2">
+              {[<strong>{name}</strong>, ...address].reduce((acc, x) => [...acc, x, <br />], [])}
+            </address>
+
+            <Button as="a" href={directions}>
+              <span class="before:content-['??=_']">
+                Directions
+              </span>
+            </Button>
+          </div>
+
+          <div class="flex-1">
+            <Formatted>
+              <Content />
+            </Formatted>
+          </div>
+        </div>
+      </Section>
+
+      <div class="shadow-2xl translate-0">
+        <iframe
+          class="border-none w-full h-64 sm:h-96 lg:h-128"
+          allow="fullscreen"
+          loading="lazy"
+          src={embed} />
+      </div>
+    );
+  })}
+
+  {!venue && (
+    <Section heading="Venue">
+      <Paragraph>
+        exec(ut) will be held at a venue somewhere in Utrecht. The exact location will be announced closer to the event.
+      </Paragraph>
+    </Section>
+  )}
+</Layout>
