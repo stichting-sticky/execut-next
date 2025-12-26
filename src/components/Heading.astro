@@ -1,0 +1,17 @@
+---
+type Props = {
+  anchor?: string;
+};
+
+const { anchor } = Astro.props;
+---
+
+<h1 class="text-primary mb-2 font-mono text-4xl font-bold before:content-['=_'] lg:mb-4 lg:text-5xl">
+  {anchor && (
+    <a class="decoration-primary-highlight decoration-4 underline-offset-4 hover:underline" href={anchor}>
+      <slot />
+    </a>
+  )}
+
+  {!anchor && <slot />}
+</h1>

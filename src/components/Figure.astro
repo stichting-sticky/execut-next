@@ -1,0 +1,23 @@
+---
+import Container from "@components/Container.astro";
+
+type Props = {
+  caption?: string;
+};
+
+const { caption } = Astro.props;
+---
+
+<figure class="bg-subtle-highlight dark:bg-foreground-highlight relative">
+  <Container>
+    <slot />
+
+    {caption && (
+      <figcaption class="absolute bottom-4 flex">
+        <h1 class="ml-2 font-mono text-3xl font-bold sm:text-4xl lg:text-6xl">
+          <mark class="bg-primary p-4 text-white">{caption}</mark>
+        </h1>
+      </figcaption>
+    )}
+  </Container>
+</figure>

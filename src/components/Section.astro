@@ -1,0 +1,24 @@
+---
+import { type HTMLAttributes } from "astro/types";
+
+import Container from "@components/Container.astro";
+import Heading from "@components/Heading.astro";
+
+type Props = HTMLAttributes<"section"> & {
+  heading?: string;
+  anchor?: string;
+};
+
+let { heading, anchor, ...attributes } = Astro.props;
+
+// If an id is provided but no anchor, use the id as anchor
+if (attributes.id) anchor ??= "#" + attributes.id;
+---
+
+<section class="py-4 md:py-6 lg:py-8" {...attributes}>
+  <Container>
+    {heading && <Heading anchor={anchor}>{heading}</Heading>}
+
+    <slot />
+  </Container>
+</section>

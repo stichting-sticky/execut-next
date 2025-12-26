@@ -1,0 +1,19 @@
+---
+import type { HTMLTag, Polymorphic } from "astro/types";
+
+type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }>;
+
+let { as: Tag = "button", ...attributes } = Astro.props;
+
+if (Tag === "a" && !attributes.href) {
+  Tag = "button";
+  attributes.disabled = true;
+  attributes.href = undefined;
+}
+
+if (Tag === "a") attributes.role ??= "button";
+---
+
+<Tag class="bg-secondary text-background dark:bg-secondary-lighter focus:ring-secondary/40 inline-block p-2 font-mono font-bold transition-opacity hover:opacity-80 focus:opacity-60 focus:ring-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-60" {...attributes}>
+  <slot />
+</Tag>
