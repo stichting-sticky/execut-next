@@ -1,0 +1,20 @@
+---
+import Container from "@components/Container.astro";
+
+import { current } from "@content";
+
+const { date } = current.data;
+---
+
+<header class="sticky top-6 z-40 mx-auto my-6 flex">
+  <a class="bg-background/60 dark:bg-background/20 text-primary dark:text-primary-lighter justify-center p-2 font-mono text-sm backdrop-blur-2xl leading-6" href="/">
+    <Container>
+      {date ? new Intl.DateTimeFormat("en-GB", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      }).format(date) : "TBA"}
+      <span class="before:text-primary-lighter before:dark:text-primary-highlight before:content-['_|>_']">Utrecht</span>
+    </Container>
+  </a>
+</header>

@@ -1,0 +1,95 @@
+---
+import Logo from "@assets/logo.svg";
+
+import Container from "@components/Container.astro";
+import Section from "@components/Section.astro";
+
+const pages = [
+  ["Overview", "/"],
+  ["Programme", "/programme"],
+  ["Talks", "/programme#talks"],
+  ["Workshops", "/programme#workshops"],
+  ["Speakers", "/speakers"],
+  ["Venue", "/venue"],
+  ["Partners", "/partners"],
+  ["Contact", "/contact"],
+  ["Acknowledgements", "/contact#acknowledgements"],
+  ["History", "/contact#history"]
+];
+
+const socials = [
+  ["Instagram", "https://www.instagram.com/execut_conference"],
+  ["LinkedIn", "https://www.linkedin.com/showcase/execut-conference/"],
+  ["YouTube", "https://www.youtube.com/@execut-conference"],
+  ["GitHub", "https://github.com/stichting-sticky"],
+];
+
+const legal = [
+  ["Code of Conduct", "/code-of-conduct.pdf"],
+  ["Privacy Policy", "/privacy-policy.pdf"],
+  ["Terms & Conditions", "/general-terms.pdf"],
+  ["Sustainability", "/sustainability-statement.pdf"],
+];
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-primary text-background dark:bg-foreground mt-auto py-4 sm:py-">
+  <Container>
+    <Section>
+      <div class="flex flex-col items-center">
+        <Logo class="h-12 w-12 fill-current" />
+
+        <p class="mt-4 text-center font-mono font-bold">Let's :commit: and think about @tomorrow.</p>
+      </div>
+    </Section>
+
+    <hr class="rule border-background/40" />
+
+    <Section>
+      <div class="grid gap-2 sm:grid-cols-3 lg:grid-cols-5">
+        <ul class="flex flex-col gap-2 sm:gap-4" role="list">
+          <li><strong>About</strong></li>
+
+          {pages.map(([name, link]) => (
+            <li>
+              <a class="link text-background" href={link}>
+                {name}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <ul class="flex flex-col gap-2 sm:gap-4" role="list">
+          <li><strong>Socials</strong></li>
+
+          {socials.map(([name, link]) => (
+            <li>
+              <a class="link text-background" href={link}>{name}</a>
+            </li>
+          ))}
+        </ul>
+
+        <ul class="flex flex-col gap-2 sm:gap-4" role="list">
+          <li><strong>Legal</strong></li>
+
+          {legal.map(([name, link]) => (
+            <li>
+              <a class="link text-background" href={link}>{name}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </Section>
+
+    <hr class="rule border-background/40" />
+
+    <Section>
+      <p class="text-center">
+        Copyright {year}
+        <a class="link text-background" href="https://stichtingsticky.nl/">Stichting Sticky</a>.
+        All rights reserved.
+      </p>
+    </Section>
+  </Container>
+</footer>

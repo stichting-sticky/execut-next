@@ -4,6 +4,9 @@ import { type HTMLAttributes } from "astro/types";
 import "@fontsource/poppins";
 import "@fontsource/space-mono";
 
+import Footer from "@components/Footer.astro";
+import Header from "@components/Header.astro";
+
 import "@styles/global.css";
 
 import { current } from "@content";
@@ -74,7 +77,11 @@ const keywords = [
 </head>
 
 <body class:list={["bg-background dark:bg-foreground-lighter flex min-h-screen flex-col", attributes.class]} {...attributes}>
+  <Header />
+
   <slot />
+
+  <Footer />
 </body>
 
 </html>
