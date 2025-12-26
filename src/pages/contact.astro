@@ -1,0 +1,96 @@
+---
+import Layout from "@layouts/Base.astro";
+
+import Paragraph from "@components/Paragraph.astro";
+import Section from "@components/Section.astro";
+import Subheading from "@components/Subheading.astro";
+
+import { current, older } from "@content";
+
+const { committee, acknowledgements } = current.data;
+
+const address = [
+  "attn. exec(ut)",
+  "Princetonplein 5",
+  "3584 CC Utrecht",
+  "The Netherlands",
+];
+
+const archivedYears = [2018, 2019, 2020, 2021, 2022];
+---
+
+<Layout title="About Us">
+  <Section heading="About Us">
+    <Paragraph>
+      exec(ut) is an event organised by <a class="link" href="https://stichtingsticky.nl">Stichting Sticky</a>. It is a conference for and by students, offering a glimpse at the wondrous world of IT beyond the university. We strive to provide a diverse programme and show how exciting conferences can be. Our main way of contact is through our mail address: <a class="link" href="mailto:conference@execut.nl">conference@execut.nl</a>.
+    </Paragraph>
+
+    <Subheading>Address</Subheading>
+
+    <address class="mb-2">
+      {[<strong>Stichting Sticky</strong>, ...address].reduce((acc, x) => [...acc, x, <br />], [])}
+    </address>
+  </Section>
+
+  <Section heading="Committee" id="committee">
+    <Paragraph>
+      The organising committee consists of {committee.length} members, all of whom are students of computing- and information sciences at Utrecht University:
+    </Paragraph>
+
+    <ul role="list">
+      {committee.map(({ name, role, contact }) => (
+        <li class="flex *:flex-1">
+          <a class="link" href={contact}>{name}</a>
+          <span class="text-foreground-highlight dark:text-subtle-highlight capitalize">{role}</span>
+        </li>
+      ))}
+    </ul>
+  </Section>
+
+  <Section heading="Acknowledgements" id="acknowledgements">
+    <Paragraph>
+      Aside from our speakers, host, and partners, there are a few people and organisations whom we would like to thank for their contributions to the organisation of exec(ut). These are, in no particular order:
+    </Paragraph>
+
+    <pre class="fenced"><code>{acknowledgements}</code></pre>
+  </Section>
+
+  <Section heading="We have been doing this for a while..." id="history">
+    <Paragraph>
+      In 2017 a group of students at Utrecht University got together to organize the first edition of exec(ut). Since then, the conference has returned every year and has grown every since.
+    </Paragraph>
+
+    <ul class="mb-2 grid gap-4 sm:mb-4" role="list">
+      {older.map(({ id, data }) => {
+        const { name, date, committee } = data;
+
+        const names = committee
+          .map(({ name }) => name)
+          .reduce((acc, val, i) => [acc, i === committee.length - 1 ? ", and " : ", ", val].join(""));
+
+        return (
+          <li class="border-subtle-highlight border-b-2 last:border-none">
+            <a class="block py-4" href={`/${id}`} id={id}>
+              <h2 class="text-primary-lighter mb-2 font-mono text-xl font-bold">{name}</h2>
+              <strong>
+                {new Intl.DateTimeFormat("en-GB", {
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric",
+                }).format(date)}
+              </strong>
+              <div>{names}</div>
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+
+    <Paragraph>
+      Furthermore, the original websites of the {archivedYears
+        .map((year) => <a class="link" href={`https://${year}.execut.nl/`}>{year}</a>)
+        .reduce((acc, val, i) => [...acc, i === archivedYears.length - 1 ? ", and " : ", ", val], [])
+      } editions are also archived separately.
+    </Paragraph>
+  </Section>
+</Layout>
