@@ -81,11 +81,30 @@
   }
 }
 
-@import "./utilities/heading.css";
-@import "./utilities/typography.css";
-@import "./utilities/rule.css";
-@import "./utilities/quote.css";
-@import "./utilities/fenced.css";
-@import "./utilities/link.css";
-@import "./utilities/enum.css";
-@import "./utilities/list.css";
+@utility code {
+  @apply bg-subtle-highlight text-foreground dark:bg-foreground dark:text-subtle-highlight -m-1 p-1 before:content-['`'] after:content-['`'];
+}
+
+@utility rule {
+  @apply border-subtle-highlight my-4 border-t-2 sm:my-8;
+}
+
+@utility quote {
+  @apply mb-2 text-center text-4xl *:font-bold *:before:content-['"'] *:after:content-['"'] last:mb-0 sm:mb-4;
+}
+
+@utility fenced {
+  @apply bg-subtle-highlight! text-foreground! dark:bg-foreground! dark:text-subtle-highlight! -mx-1 mb-2 p-1 whitespace-pre-wrap before:font-bold before:content-['```'] after:font-mono after:content-['```'] last:mb-0 focus:outline-none sm:mb-4 [&_code]:block;
+}
+
+@utility link {
+  @apply text-secondary dark:text-secondary-lighter hyphens-none underline decoration-current/40 decoration-2 underline-offset-2 transition-opacity hover:opacity-80 focus:opacity-60 focus:outline-2 focus:outline-offset-2;
+}
+
+@utility enum {
+  @apply marker:text-tertiary dark:marker:text-tertiary-lighter ml-2 list-inside list-disc marker:font-mono marker:font-bold;
+}
+
+@utility bullet {
+  @apply marker:text-accent dark:marker:text-accent-lighter ml-2 list-inside list-['>_'] marker:font-mono marker:font-bold;
+}
