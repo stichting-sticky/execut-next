@@ -1,0 +1,77 @@
+---
+import { getEntries } from "astro:content";
+
+import Layout from "@layouts/Base.astro";
+
+import Abstract from "@components/Abstract.astro";
+import Highlight from "@components/Highlight.astro";
+import Paragraph from "@components/Paragraph.astro";
+import Programmee from "@components/Programme.astro"; // `Programme` would conflict with local definition
+import Section from "@components/Section.astro";
+import Strike from "@components/Strike.astro";
+
+import { current, previous } from "@content"
+
+let { tickets, programme, talks, workshops, speakers } = current.data;
+
+// Populate talks with the previous edition's talks if the current edition has not announced theirs
+talks ??= previous.data.talks;
+---
+
+<Layout title="Programme">
+  <Section heading="Programme">
+    <Paragraph>
+      We will have {speakers?.length ?? "a number of"} speakers who will give a talk on a particular aspect of software and technology.
+    </Paragraph>
+
+    {!programme && (
+      <Paragraph>
+        The programme for this edition has not yet been announced; <Highlight>please check back later!</Highlight>
+      </Paragraph>
+    )}
+  </Section>
+
+  {programme && <Programmee programme={programme} />}
+
+  <Section heading="Talks" id="talks">
+    {speakers && (
+      <Paragraph>
+        Our speakers come from a wide variety of backgrounds and will be presenting an equally wide variety of interesting talks. Below you can find their abstracts, providing you with a sneak peek into their presentations.
+      </Paragraph>
+    )}
+
+    {!speakers && (
+      <Paragraph>
+        Our speakers come from a wide variety of backgrounds and will be presenting an equally wide variety of interesting talks. <Strike>Below you can find their abstracts, providing you with a sneak peek into their presentations.</Strike> The speakers and talks for this edition have not yet been announced; <Highlight>please check back later!</Highlight> Instead, to whet your appetite, here is a list of some of the talks from the previous edition.
+      </Paragraph>
+
+      <Paragraph>
+        If you are interested in speaking on exec(ut), please reach out! You can contact us at <a class="link" href="mailto:speakers@execut.nl">speakers@execut.nl</a>.
+      </Paragraph>
+    )}
+
+    {await getEntries(talks ?? []).then((talks) => talks.map((talk) => (
+      <Abstract entry={talk} />
+    )))}
+  </Section>
+
+  {(!workshops || workshops.length !== 0) && (
+    <Section heading="Workshops" id="workshops">
+      {workshops && tickets && (
+        <Paragraph>
+          Aside from these talks a number of workshops hosted by our partners are also avalible. You can sign up for these workshops <a class="link" href={tickets}>here</a>. A workshop will replace the talk that is scheduled in the same slot.
+        </Paragraph>
+      )}
+
+      {!workshops && (
+        <Paragraph>
+          The workshops for this edition have not yet been announced; <Highlight>please check back later!</Highlight>
+        </Paragraph>
+      )}
+
+      {await getEntries(workshops ?? []).then((workshops) => workshops.map((workshop) => (
+        <Abstract entry={workshop} />
+      )))}
+    </Section>
+  )}
+</Layout>

@@ -1,0 +1,60 @@
+---
+import { getEntry } from "astro:content";
+
+import Container from "@components/Container.astro";
+
+import { type Programme } from "@content";
+
+type Props = {
+  programme?: Programme;
+};
+
+const { programme } = Astro.props;
+---
+
+<article class="bg-secondary dark:bg-foreground text-background py-2">
+  <Container>
+    <ul>
+      <li class="text-background/60 border-background/60 items-center border-b-2 py-2">
+        <span class="w-24 font-mono">START</span>
+        <span class="flex-1 font-mono">ACTIVITIES</span>
+      </li>
+
+      {programme?.map(async ({ time, activities, organizational }) => (
+        <li class="flex items-end py-2">
+          <time class="w-24 font-mono">{time}</time>
+
+          {activities?.map(async ({ type, activity }) => {
+            if (type === "talk") {
+              const talk = await getEntry(activity);
+              const speaker = await getEntry(talk.data.speaker);
+
+              return (
+                <a class="flex-1" href={`/talks/${talk.id}`}>
+                  <span class="text-background/60 font-mono">{speaker.data.name}</span>
+                  <div class="link text-background">{talk.data.title}</div>
+                </a>
+              );
+            }
+
+            if (type === "workshop") {
+              const workshop = await getEntry(activity);
+              const partner = await getEntry(workshop.data.organizer);
+
+              return (
+                <a class="flex-1" href={`/workshops/${workshop.id}`}>
+                  <span class="text-background/60 font-mono">{partner.data.name}</span>
+                  <div class="link text-background">{workshop.data.title}</div>
+                </a>
+              );
+            }
+          })}
+
+          {organizational && <span class="italic">{organizational}</span>}
+
+          {!activities && !organizational && <span class="italic">TBA</span>}
+        </li>
+      ))}
+    </ul>
+  </Container>
+</article>

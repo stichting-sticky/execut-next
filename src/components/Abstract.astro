@@ -1,0 +1,28 @@
+---
+import { type CollectionEntry, render } from "astro:content";
+
+import Card from "@components/Card.astro";
+import Description from "@components/Description.astro";
+import Formatted from "@components/Formatted.astro";
+import Subheading from "@components/Subheading.astro";
+
+type Props = {
+  entry: CollectionEntry<"talks"> | CollectionEntry<"workshops">;
+};
+
+const { entry } = Astro.props;
+
+const { title, description } = entry.data;
+
+const { Content } = await render(entry);
+---
+
+<Card>
+  <Subheading anchor={`/${entry.collection}/${entry.id}`}>{title}</Subheading>
+
+  {description && <Description description={description} />}
+
+  <Formatted>
+    <Content />
+  </Formatted>
+</Card>
