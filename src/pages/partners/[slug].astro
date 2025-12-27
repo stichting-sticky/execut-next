@@ -1,0 +1,45 @@
+---
+import { Image } from "astro:assets";
+import { getCollection, render } from "astro:content";
+
+import Layout from "@layouts/Base.astro";
+
+import Description from "@components/Description.astro"
+import Figure from "@components/Figure.astro";
+import Formatted from "@components/Formatted.astro";
+import Section from "@components/Section.astro";
+import Socials from "@components/Socials.astro";
+
+export const getStaticPaths = async () => {
+  const partners = await getCollection("partners");
+
+  return partners.map((partner) => ({
+    params: { slug: partner.id },
+    props: { partner },
+  }));
+};
+
+const { partner } = Astro.props;
+
+const { name, logo, contact, description } = partner.data;
+
+const { Content } = await render(partner);
+---
+
+<Layout title={name}>
+  <Figure caption={name}>
+    <div class="flex items-center justify-center">
+      <Image class="h-64 object-contain p-12 sm:h-96 lg:h-128" src={logo} alt={name} />
+    </div>
+  </Figure>
+
+  <Section>
+    {description && <Description description={description} />}
+
+    {contact && <Socials contact={contact} />}
+
+    <Formatted>
+      <Content />
+    </Formatted>
+  </Section>
+</Layout>

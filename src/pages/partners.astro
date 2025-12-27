@@ -1,0 +1,55 @@
+---
+import { Image } from "astro:assets";
+import { getEntries } from "astro:content";
+
+import Layout from "@layouts/Base.astro";
+
+import Highlight from "@components/Highlight.astro";
+import Paragraph from "@components/Paragraph.astro";
+import Section from "@components/Section.astro";
+import Strike from "@components/Strike.astro";
+
+import { current } from "@content";
+
+const { partners } = current.data;
+---
+
+<Layout title="Our Partners">
+  <Section heading="Partners">
+    {partners && (
+      <Paragraph>
+        Without the generous support of our partners exec(ut) would not have been possible. Below you can find a list of our partners, most of whom you will be able to meet on the day itself. They will be attending exec(ut) with a stand, so make sure to stop by and have a chat!
+      </Paragraph>
+    )}
+
+    {!partners && (
+      <Paragraph>
+        Without the generous support of our partners exec(ut) would not have been possible. <Strike>Below you can find a list of our partners, most of whom you will be able to meet on the day itself.</Strike> The partners for this edition have not yet been announced; <Highlight>please check back later!</Highlight>
+      </Paragraph>
+
+      <Paragraph>
+        If you are interested in working with us please reach out! You can contact us at <a class="link" href="mailto:partners@execut.nl">partners@execut.nl</a>.
+      </Paragraph>
+    )}
+
+    {partners && Object.entries(partners).map(async ([tier, partners]) => (
+      <h2 class="-ml-2 -mb-2 font-mono text-3xl font-bold lg:text-4xl">
+        <mark class="bg-primary p-2 text-white z-10 relative">{tier}</mark>
+      </h2>
+
+      <ul class="grid gap-4 md:grid-cols-2 lg:grid-cols-3" role="list">
+        {await getEntries(partners).then((partners) => partners.map((partner) => {
+          const { name, logo } = partner.data;
+
+          return (
+            <li class="hover:bg-subtle-highlight dark:hover:bg-foreground-highlight transition-colors">
+              <a href={`/partners/${partner.id}`}>
+                <Image class="dark:grayscale dark:invert dark:hover:invert-0 dark:hover:grayscale-0 h-42 object-contain p-8 lg:h-56" src={logo} alt={name} />
+              </a>
+            </li>
+          );
+        }))}
+      </ul>
+    ))}
+  </Section>
+</Layout>
