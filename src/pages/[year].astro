@@ -1,0 +1,81 @@
+---
+import { Image } from "astro:assets";
+import { getEntries, getEntry, render } from "astro:content";
+
+import Layout from "@layouts/Base.astro";
+
+import Bio from "@components/Bio.astro";
+import Figure from "@components/Figure.astro";
+import Formatted from "@components/Formatted.astro";
+import LogoCloud from "@components/LogoCloud.astro";
+import Section from "@components/Section.astro";
+
+import { older } from "@content";
+
+export const getStaticPaths = () => older.map((edition) => ({
+  params: { year: edition.id },
+  props: { edition },
+}));
+
+const { edition } = Astro.props;
+
+let { name, highlights, speakers, hosts, partners, venue, committee } = edition.data;
+
+const people = await getEntries((speakers ?? []).concat(hosts ?? []));
+
+// Convert YouTube video to embed and disable controls
+highlights &&= highlights.replace("/watch?v=", "/embed/") + "?controls=0";
+---
+
+<Layout year={edition.id}>
+  {highlights && (
+    <Figure caption={name}>
+      <iframe
+        class="border-0 w-full aspect-video shadow-2xl"
+        allow="accelerometer;encrypted-media;fullscreen;gyroscope;picture-in-picture;web-share"
+        loading="lazy"
+        src={highlights} />
+    </Figure>
+  )}
+
+  {people.length > 0 && (
+    <Section heading="Speakers && Hosts" id="speakers">
+      {people.map((people) => <Bio person={people} />)}
+    </Section>
+  )}
+
+  {venue && await getEntry(venue).then(async (venue) => {
+    const { name, image } = venue.data;
+
+    const { Content } = await render(venue);
+
+    return (
+      <Figure caption={name}>
+        <Image class="drop-shadow-2xl" src={image} alt={name} />
+      </Figure>
+
+      <Section id="venue">
+        <Formatted>
+          <Content />
+        </Formatted>
+      </Section>
+    );
+  })}
+
+  {partners && await getEntries(Object.values(partners).flat()).then((partners) => (
+    <Section heading="Partners" id="partners">
+      <LogoCloud partners={partners} />
+    </Section>
+  ))}
+
+  <Section heading="Committee" id="committee">
+    <ul class="bullet" role="list">
+      {committee.map(({ name, role, contact }) => (
+        <li>
+          <a class="link" href={contact}>{name}</a>
+          <span class="text-foreground-highlight dark:text-subtle-highlight capitalize">{role}</span>
+        </li>
+      ))}
+    </ul>
+  </Section>
+</Layout>

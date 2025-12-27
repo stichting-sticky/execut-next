@@ -1,0 +1,22 @@
+---
+import { Image } from "astro:assets";
+import { type CollectionEntry } from "astro:content";
+
+type Props = {
+  partners: CollectionEntry<"partners">[];
+};
+
+const { partners } = Astro.props;
+---
+
+<div class="grid grid-cols-2 items-center gap-4 lg:grid-cols-3">
+  {partners.map((partner) => {
+    const { logo, name } = partner.data;
+
+    return (
+      <a class="flex justify-center" href={`/partners/${partner.id}`}>
+        <Image class="h-24 object-contain p-4 grayscale dark:invert hover:invert-0 hover:grayscale-0 dark:hover:bg-foreground-highlight hover:bg-subtle-highlight" src={logo} alt={name} />
+      </a>
+    );
+  })}
+</div>
