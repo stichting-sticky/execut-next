@@ -1,0 +1,43 @@
+---
+import { getCollection, getEntry, render } from "astro:content";
+
+import Layout from "@layouts/Base.astro";
+
+import Description from "@components/Description.astro";
+import Formatted from "@components/Formatted.astro";
+import Section from "@components/Section.astro";
+
+export const getStaticPaths = async () => {
+  const workshops = await getCollection("workshops");
+
+  return Promise.all(workshops.map(async (workshop) => {
+    const organizer = await getEntry(workshop.data.organizer);
+
+    return {
+      params: { slug: workshop.id },
+      props: { workshop, organizer },
+    };
+  }));
+};
+
+const { workshop, organizer } = Astro.props;
+
+const { title, description } = workshop.data;
+const { name } = organizer.data;
+
+const { Content } = await render(workshop);
+---
+
+<Layout title={title}>
+  <Section heading={title}>
+    {description && <Description description={description} />}
+
+    <Formatted>
+      <Content />
+    </Formatted>
+
+    <a class="link before:font-mono before:content-['>>=_']" href={`/partners/${organizer.id}`}>
+      Find out more about {name}
+    </a>
+  </Section>
+</Layout>

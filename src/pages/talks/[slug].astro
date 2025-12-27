@@ -1,0 +1,41 @@
+---
+import { getCollection, getEntry, render } from "astro:content";
+
+import Layout from "@layouts/Base.astro";
+
+import Bio from "@components/Bio.astro";
+import Description from "@components/Description.astro";
+import Formatted from "@components/Formatted.astro";
+import Section from "@components/Section.astro";
+
+export const getStaticPaths = async () => {
+  const talks = await getCollection("talks");
+
+  return Promise.all(talks.map(async (talk) => {
+    const speaker = await getEntry(talk.data.speaker);
+
+    return {
+      params: { slug: talk.id },
+      props: { talk, speaker },
+    };
+  }));
+};
+
+const { talk, speaker } = Astro.props;
+
+const { title, description } = talk.data;
+
+const { Content } = await render(talk);
+---
+
+<Layout title={title}>
+  <Section heading={title}>
+    {description && <Description description={description} />}
+
+    <Formatted>
+      <Content />
+    </Formatted>
+
+    <Bio person={speaker} />
+  </Section>
+</Layout>
