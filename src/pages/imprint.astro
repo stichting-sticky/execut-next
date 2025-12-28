@@ -1,0 +1,53 @@
+---
+import { getEntry } from "astro:content";
+
+import Layout from "@layouts/Base.astro";
+
+import Container from "@components/Container.astro";
+
+import { current } from "@content";
+
+const { name, date, tickets, programme, speakers, venue } = current.data;
+
+const actions: [string, string][] = [];
+
+if (tickets) actions.push(["Get your ticket!", tickets]);
+if (programme) actions.push(["View programme", "/programme"]);
+if (speakers) actions.push(["Get to know our speakers", "/speakers"]);
+if (venue) actions.push(["Find your way to the venue", "/venue"]);
+---
+
+<Layout class="bg-primary-highlight/40">
+  <section class="-mt-22 pt-22 pb-8 min-h-screen content-center lg:w-lg  mx-auto text-center">
+    <Container>
+      <div class="flex flex-col gap-4 sm:gap-8">
+        <span class="text-primary font-mono text-4xl font-bold sm:text-5xl">
+          {name}
+        </span>
+
+        {date && (
+          <span class="text-primary-lighter font-mono text-4xl font-bold sm:text-5xl">
+            {new Intl.DateTimeFormat("en-GB", {
+              day: "numeric",
+              month: "long",
+            }).format(date)}
+          </span>
+        )}
+
+        {venue && (
+          <span class="text-primary-highlight font-mono text-4xl font-bold sm:text-5xl">
+            {await getEntry(venue).then((venue) => venue.data.name)}
+          </span>
+        )}
+      </div>
+
+      <div class="mt-8 flex flex-col gap-2">
+        {actions.map(([title, anchor]) => (
+          <a class="link text-background bg-primary inline-block p-4 before:font-mono before:content-['??=_']" href={anchor}>
+            {title}
+          </a>
+        ))}
+      </div>
+    </Container>
+  </section>
+</Layout>
