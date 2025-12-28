@@ -1,0 +1,17 @@
+---
+import { type Notification } from "@content";
+
+type Props = Notification;
+
+const { message, anchor } = Astro.props;
+
+const [first, second, ...rest] = message;
+---
+
+<a class="-mx-1 flex flex-col items-start font-mono font-bold text-white sm:-mx-2" href={anchor}>
+  <span class="bg-tertiary flex p-6 text-6xl lg:p-8 lg:text-8xl">{first}</span>
+
+  {second && <span class="bg-tertiary-lighter block p-4 text-4xl lg:p-6 lg:text-6xl">{second}</span>}
+
+  {rest.map((line) => <span class="bg-tertiary-highlight block p-2 text-end text-2xl lg:p-4 lg:text-4xl">{line}</span>)}
+</a>

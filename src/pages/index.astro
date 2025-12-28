@@ -1,10 +1,118 @@
 ---
+import { Image } from "astro:assets";
+import { getEntry, getEntries, render } from "astro:content";
+
 import Layout from "@layouts/Base.astro";
+
+import Bio from "@components/Bio.astro";
+import Figure from "@components/Figure.astro";
+import Formatted from "@components/Formatted.astro";
+import Hero from "@components/Hero.astro";
+import Highlight from "@components/Highlight.astro";
+import LogoCloud from "@components/LogoCloud.astro";
+import Paragraph from "@components/Paragraph.astro";
+import Programme from "@components/Programme.astro";
+import Section from "@components/Section.astro";
+import Strike from "@components/Strike.astro";
+
+import { current, previous } from "@content";
+
+const { programme, speakers, hosts, partners, venue } = current.data;
+
+let people = await getEntries((speakers ?? []).concat(hosts ?? []));
+
+// Propulate people with the previous edition's speakers if the current edition has not announced theirs
+if (!speakers) people = await getEntries(previous.data.speakers ?? []);
 ---
 
 <Layout>
-  <h1 class="font-mono text-8xl">
-    <span class="text-accent-lighter dark:text-accent">#</span>Hello,<br />
-    world!<span class="text-primary-highlight dark:text-tertiary motion-safe:animate-blink">_</span>
-  </h1>
+  <Hero />
+
+  <Section heading="Programme" anchor="programme">
+    <Paragraph>
+      We will have {speakers?.length ?? "a number of"} speakers who will give a talk on a particular aspect of software and technology.
+    </Paragraph>
+
+    {!programme && (
+      <Paragraph>
+        The programme for this edition has not yet been announced; <Highlight>please check back later!</Highlight>
+      </Paragraph>
+    )}
+  </Section>
+
+  {programme && <Programme programme={programme} />}
+
+  <Section heading="Speakers && Hosts" anchor="/speakers">
+    {speakers && (
+      <Paragraph>
+        Our speakers come from a wide variety of backgrounds and will be presenting an equally wide variety of interesting talks. Below you can find their bios and talk-abstracts, providing you with a sneak peek into their presentations.
+      </Paragraph>
+    )}
+
+    {!speakers && (
+      <Paragraph>
+        Our speakers come from a wide variety of backgrounds and will be presenting an equally wide variety of interesting talks. <Strike>Below you can find their bios and talk-abstracts, providing you with a sneak peek into their presentations.</Strike> The speakers and talks for this edition have not yet been announced; <Highlight>please check back later!</Highlight> Instead, to whet your appetite, here is a list of some of the speakers from the previous edition.
+      </Paragraph>
+
+      <Paragraph>
+        If you are interested in speaking on exec(ut), please reach out! You can contact us at <a class="link" href="mailto:speakers@execut.nl">speakers@execut.nl</a>.
+      </Paragraph>
+    )}
+
+    {people.map((person) => <Bio person={person} />)}
+  </Section>
+
+  {venue && await getEntry(venue).then(async (venue) => {
+    const { name, image } = venue.data;
+
+    const { Content } = await render(venue);
+
+    return (
+      <Figure caption={name}>
+        <div class="relative shadow-2xl">
+          <Image src={image} alt="Venue" />
+        </div>
+      </Figure>
+
+      <Section>
+        <Formatted>
+          <Content />
+        </Formatted>
+
+        <a class="link before:font-mono before:content-['>>=_']" href="/venue">
+          Read more about our venue
+        </a>
+      </Section>
+    );
+  })}
+
+  {!venue && (
+    <Section heading="Venue" anchor="/venue">
+      <Paragraph>exec(ut) will be held at a venue somewhere in Utrecht. The exact location will be announced closer to the event.</Paragraph>
+    </Section>
+  )}
+
+  <Section heading="Our Partners" anchor="/partners">
+    {partners && (
+      <Paragraph>
+        Without the generous support of our partners exec(ut) would not have been possible. Below you can find a list of our partners, most of whom you will be able to meet on the day itself. They will be attending exec(ut) with a stand, so make sure to stop by and have a chat!
+      </Paragraph>
+
+      <a class="link before:font-mono before:content-['>>=_']" href="/partners">
+        Read more about our partners
+      </a>
+    )}
+
+    {!partners && (
+      <Paragraph>
+        Without the generous support of our partners exec(ut) would not have been possible. The partners for this edition have not yet been announced; <Highlight>please check back later!</Highlight>
+      </Paragraph>
+
+      <Paragraph>
+        If you are intrestd in working with us please reach out! You can contact us at <a class="link" href="mailto:partners@execut.nl">partners@execut.nl</a>.
+      </Paragraph>
+    )}
+
+    {partners && <LogoCloud partners={await getEntries(Object.values(partners).flat())} />}
+  </Section>
 </Layout>

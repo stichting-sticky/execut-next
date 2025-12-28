@@ -1,0 +1,22 @@
+---
+import Section from "@components/Section.astro";
+
+import { type Incentives } from "@content";
+
+type Props = {
+  incentives: Incentives;
+};
+
+const { incentives } = Astro.props;
+---
+
+<Section>
+  <figure class="grid grid-cols-2 gap-4 sm:gap-6 sm:text-center lg:grid-cols-none lg:grid-flow-col">
+    {incentives.map(([title, figure]) => (
+      <div class="flex flex-col sm:text-center lg:text-left">
+        <small class="text-primary-lighter font-mono text-sm">{title}</small>
+        <span class="text-foreground-lighter mt-2 text-lg font-bold">{figure}</span>
+      </div>
+    ))}
+  </figure>
+</Section>

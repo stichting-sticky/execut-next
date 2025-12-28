@@ -1,0 +1,32 @@
+---
+import Banner from "@components/Banner.astro";
+import Button from "@components/Button.astro";
+import Incentives from "@components/Incentives.astro";
+import Section from "@components/Section.astro";
+
+import { current } from "@content";
+
+const { tickets, notification, incentives } = current.data;
+---
+
+<Section>
+  <article class="not-last:mb-8">
+    <h1 class="text-primary mb-4 font-mono text-5xl font-bold sm:mb-8 sm:text-6xl">
+      A conference for and by IT students.
+    </h1>
+
+    <p class="text-primary-lighter mb-4 text-2xl leading-relaxed sm:mb-8">
+      For those willing to look further than their own classroom. We want to work together, inspire each other, and commit ourselves to a better tomorrow. Besides a range of interesting talks exec(ut) provides great networking opportunities to those attending.
+    </p>
+
+    {tickets && (
+      <Button as="a" href={tickets}>
+        <span class="block p-4 text-xl before:content-['??=_']">Get your ticket!</span>
+      </Button>
+    )}
+  </article>
+
+  {notification && <Banner {...notification} />}
+
+  {incentives && <Incentives incentives={incentives} />}
+</Section>
