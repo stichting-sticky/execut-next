@@ -37,9 +37,9 @@ const archivedYears = [2018, 2019, 2020, 2021, 2022];
       The organising committee consists of {committee.length} members, all of whom are students of computing- and information sciences at Utrecht University:
     </Paragraph>
 
-    <ul role="list">
+    <ul class="bullet" role="list">
       {committee.map(({ name, role, contact }) => (
-        <li class="flex *:flex-1">
+        <li>
           <a class="link" href={contact}>{name}</a>
           <span class="text-foreground-highlight dark:text-subtle-highlight capitalize">{role}</span>
         </li>
@@ -60,7 +60,7 @@ const archivedYears = [2018, 2019, 2020, 2021, 2022];
       In 2017 a group of students at Utrecht University got together to organize the first edition of exec(ut). Since then, the conference has returned every year and has grown every since.
     </Paragraph>
 
-    <ul class="mb-2 grid gap-4 sm:mb-4" role="list">
+    <ul class="mb-2 grid sm:mb-4" role="list">
       {older.map(({ id, data }) => {
         const { name, date, committee } = data;
 
@@ -69,8 +69,8 @@ const archivedYears = [2018, 2019, 2020, 2021, 2022];
           .reduce((acc, val, i) => [acc, i === committee.length - 1 ? ", and " : ", ", val].join(""));
 
         return (
-          <li class="border-subtle-highlight border-b-2 last:border-none">
-            <a class="block py-4" href={`/${id}`} id={id}>
+          <li class="border-subtle-highlight dark:border-foreground-highlight border-b-2 last:border-none">
+            <a class="block py-4 px-1 sm:px-2 -mx-1 sm:-mx-2 hover:bg-subtle-highlight dark:hover:bg-foreground-highlight" href={`/${id}`} id={id}>
               <h2 class="text-primary-lighter mb-2 font-mono text-xl font-bold">{name}</h2>
               <strong>
                 {new Intl.DateTimeFormat("en-GB", {
