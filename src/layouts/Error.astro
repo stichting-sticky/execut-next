@@ -11,11 +11,13 @@ type Props = {
 const { message, status } = Astro.props;
 ---
 
-<Layout class="bg-primary dark:bg-foreground text-background flex min-h-screen flex-col justify-center">
-  <Container>
-    <code class="bg-primary-lighter dark:bg-foreground-lighter before:content-['`'] after:content-['`']">{status}</code>
-    <h1 class="mb-4 text-7xl sm:mb-8 sm:text-8xl">{message}</h1>
+<Layout class="bg-primary text-background" title={status}>
+  <main class="my-8 flex-1 flex-wrap content-center">
+    <Container>
+      <code class="bg-primary-lighter dark:bg-foreground before:content-['`'] after:content-['`']">{status}</code>
+      <h1 class="mb-4 text-6xl sm:mb-8 sm:text-8xl">{message}</h1>
 
-    <a class="link text-background" href="/">%= go back home</a>
-  </Container>
+      <a class="link text-background before:font-mono before:content-['%=_']" href="/">go back home</a>
+    </Container>
+  </main>
 </Layout>
