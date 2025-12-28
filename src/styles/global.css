@@ -102,7 +102,7 @@
 }
 
 @utility enum {
-  @apply marker:text-tertiary dark:marker:text-tertiary-lighter ml-2 list-inside list-disc marker:font-mono marker:font-bold;
+  @apply marker:text-tertiary dark:marker:text-tertiary-lighter ml-2 list-inside list-decimal marker:font-mono marker:font-bold;
 }
 
 @utility bullet {
