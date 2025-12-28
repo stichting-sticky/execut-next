@@ -1,5 +1,6 @@
 ---
 import { type HTMLAttributes } from "astro/types";
+import { ClientRouter } from "astro:transitions";
 
 import "@fontsource/poppins/400.css";
 import "@fontsource/poppins/400-italic.css";
@@ -79,6 +80,8 @@ const keywords = [
   <link rel="sitemap" href="/sitemap-index.xml" />
 
   <title>{`${title} | exec(ut) ${year}`}</title>
+
+  <ClientRouter />
 </head>
 
 <body class:list={["bg-background dark:bg-foreground-lighter flex min-h-screen flex-col", attributes.class]} {...attributes}>
