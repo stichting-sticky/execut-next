@@ -89,7 +89,7 @@ const archivedYears = [2018, 2019, 2020, 2021, 2022];
     <Paragraph>
       Furthermore, the original websites of the {archivedYears
         .map((year) => <a class="link" href={`https://${year}.execut.nl/`}>{year}</a>)
-        .reduce((acc, val, i) => [...acc, i === archivedYears.length - 1 ? ", and " : ", ", val], [])
+        .reduce((acc, val, i) => [acc, i === archivedYears.length - 1 ? ", and " : ", ", val])
       } editions are also archived separately.
     </Paragraph>
   </Section>
