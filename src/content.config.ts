@@ -1,5 +1,6 @@
-import { defineCollection, getCollection, reference, z, type CollectionEntry, type SchemaContext } from "astro:content";
+import { defineCollection, getCollection, reference, type CollectionEntry, type SchemaContext } from "astro:content";
 import { glob } from "astro/loaders";
+import { z } from "astro/zod";
 
 export type Incentives = z.infer<typeof Incentives>;
 
@@ -9,7 +10,7 @@ export type Notification = z.infer<typeof Notification>;
 
 const Notification = z.object({
   message: z.string().transform((value) => value.trim().split("\n")),
-  anchor: z.string().url().optional(),
+  anchor: z.url().optional(),
 });
 
 export type Activity = z.infer<typeof Activity>;
@@ -29,7 +30,7 @@ export type Programme = z.infer<typeof Programme>;
 
 const Programme = z
   .object({
-    time: z.coerce.string().time(),
+    time: z.iso.time(),
     activities: Activity.array().optional(),
     organizational: z.string().optional(),
   })
@@ -53,7 +54,7 @@ const Committee = z
   .object({
     name: z.string(),
     role: Role,
-    contact: z.coerce.string().url().optional(),
+    contact: z.url().optional(),
   })
   .array();
 
@@ -67,15 +68,15 @@ const Edition = z.object({
   name: z.string(),
   date: z.coerce.date().optional(),
   incentives: Incentives.optional(),
-  highlights: z.string().url().optional(),
+  highlights: z.url().optional(),
   notification: Notification.optional(),
-  tickets: z.string().url().optional(),
+  tickets: z.url().optional(),
   programme: Programme.optional(),
   talks: reference("talks").array().optional(),
   workshops: reference("workshops").array().optional(),
   speakers: reference("people").array().optional(),
   hosts: reference("people").array().optional(),
-  partners: z.record(Tier, reference("partners").array()).optional(),
+  partners: z.partialRecord(Tier, reference("partners").array()).optional(),
   venue: reference("venues").optional(),
   committee: Committee,
   acknowledgements: z
@@ -99,9 +100,9 @@ export type Contact = z.infer<typeof Contact>;
 
 const Contact = z
   .object({
-    website: z.coerce.string().url(),
-    mail: z.coerce.string().email(),
-    socials: z.record(Social, z.coerce.string().url()),
+    website: z.url(),
+    mail: z.email(),
+    socials: z.partialRecord(Social, z.url()),
   })
   .partial();
 
@@ -154,8 +155,8 @@ const Venue = ({ image }: SchemaContext) => z.object({
   description: z.string().optional(),
   image: image(),
   address: z.string().transform((address) => address.trim().split("\n")),
-  directions: z.coerce.string().url(),
-  embed: z.coerce.string().url(),
+  directions: z.url(),
+  embed: z.url(),
 });
 
 const venues = defineCollection({
