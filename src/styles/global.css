@@ -71,14 +71,6 @@
   --color-white: #fff;
 
   --color-current: currentColor;
-
-  --animate-blink: blink 1s step-start infinite;
-
-  @keyframes blink {
-    50% {
-      opacity: 0;
-    }
-  }
 }
 
 @utility code {
