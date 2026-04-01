@@ -58,7 +58,7 @@ const keywords = [
 <head>
   <meta charset="utf-8" />
 
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/icon-180x180.png" />
 
@@ -83,7 +83,14 @@ const keywords = [
   <ClientRouter />
 </head>
 
-<body class:list={["bg-background dark:bg-foreground-lighter flex min-h-screen flex-col", attributes.class]} {...attributes}>
+<body class:list={[
+  "bg-background",
+  "dark:bg-foreground-lighter",
+  "flex",
+  "min-h-screen",
+  "flex-col",
+  ...attributes.class?.split(" ") || [],
+]}>
   <Header />
 
   <slot />
