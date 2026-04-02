@@ -1,11 +1,17 @@
 ---
+import { getCollection } from "astro:content";
+
 import Layout from "@layouts/Base.astro";
 
 import Paragraph from "@components/Paragraph.astro";
 import Section from "@components/Section.astro";
 import Subheading from "@components/Subheading.astro";
 
-import { current, older } from "@content";
+import { sort } from "@utils";
+
+const editions = await getCollection("editions").then(sort);
+
+const [current, ...older] = editions;
 
 const { committee, acknowledgements } = current.data;
 

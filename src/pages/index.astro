@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import { getEntry, getEntries, render } from "astro:content";
+import { getCollection, getEntry, getEntries, render } from "astro:content";
 
 import Layout from "@layouts/Base.astro";
 
@@ -15,7 +15,12 @@ import Programme from "@components/Programme.astro";
 import Section from "@components/Section.astro";
 import Strike from "@components/Strike.astro";
 
-import { current, previous } from "@content";
+import { sort } from "@utils";
+
+const editions = await getCollection("editions").then(sort);
+
+const current = editions.at(0)!;
+const previous = editions.at(1)!;
 
 const { programme, speakers, hosts, partners, venue } = current.data;
 

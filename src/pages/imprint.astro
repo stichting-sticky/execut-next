@@ -1,11 +1,15 @@
 ---
-import { getEntry } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 
 import Layout from "@layouts/Base.astro";
 
 import Container from "@components/Container.astro";
 
-import { current } from "@content";
+import { sort } from "@utils";
+
+const editions = await getCollection("editions").then(sort);
+
+const current = editions.at(0)!;
 
 const { name, date, tickets, programme, speakers, venue } = current.data;
 

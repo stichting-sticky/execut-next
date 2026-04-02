@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import { getEntries, getEntry, render } from "astro:content";
+import { getCollection, getEntries, getEntry, render } from "astro:content";
 
 import Layout from "@layouts/Base.astro";
 
@@ -10,12 +10,16 @@ import Formatted from "@components/Formatted.astro";
 import LogoCloud from "@components/LogoCloud.astro";
 import Section from "@components/Section.astro";
 
-import { older } from "@content";
+import { sort } from "@utils";
 
-export const getStaticPaths = () => older.map((edition) => ({
-  params: { year: edition.id },
-  props: { edition },
-}));
+export const getStaticPaths = async () => {
+  const editions = await getCollection("editions").then(sort);
+
+  return editions.slice(1).map((edition) => ({
+    params: { year: edition.id },
+    props: { edition },
+  }));
+};
 
 const { edition } = Astro.props;
 

@@ -1,5 +1,5 @@
 ---
-import { getEntries } from "astro:content";
+import { getCollection, getEntries } from "astro:content";
 
 import Layout from "@layouts/Base.astro";
 
@@ -10,7 +10,12 @@ import Programmee from "@components/Programme.astro"; // `Programme` would confl
 import Section from "@components/Section.astro";
 import Strike from "@components/Strike.astro";
 
-import { current, previous } from "@content"
+import { sort } from "@utils";
+
+const editions = await getCollection("editions").then(sort);
+
+const current = editions.at(0)!;
+const previous = editions.at(1)!;
 
 let { tickets, programme, talks, workshops, speakers } = current.data;
 

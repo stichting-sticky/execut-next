@@ -1,5 +1,6 @@
 ---
 import { type HTMLAttributes } from "astro/types";
+import { getCollection } from "astro:content";
 import { ClientRouter } from "astro:transitions";
 
 import "@fontsource/poppins/400.css";
@@ -14,12 +15,16 @@ import Header from "@components/Header.astro";
 
 import "@styles/global.css";
 
-import { current } from "@content";
+import { sort } from "@utils";
 
 type Props = HTMLAttributes<"body"> & {
   title?: string;
   year?: string;
 };
+
+const editions = await getCollection("editions").then(sort);
+
+const current = editions.at(0)!;
 
 const {
   title = "A conference for and by IT students",

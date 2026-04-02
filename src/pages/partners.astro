@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import { getEntries } from "astro:content";
+import { getCollection, getEntries } from "astro:content";
 
 import Layout from "@layouts/Base.astro";
 
@@ -9,7 +9,11 @@ import Paragraph from "@components/Paragraph.astro";
 import Section from "@components/Section.astro";
 import Strike from "@components/Strike.astro";
 
-import { current } from "@content";
+import { sort } from "@utils";
+
+const editions = await getCollection("editions").then(sort);
+
+const current = editions.at(0)!;
 
 const { partners } = current.data;
 ---

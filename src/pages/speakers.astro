@@ -1,5 +1,5 @@
 ---
-import { getEntries } from "astro:content";
+import { getCollection, getEntries } from "astro:content";
 
 import Layout from "@layouts/Base.astro";
 
@@ -9,7 +9,11 @@ import Paragraph from "@components/Paragraph.astro";
 import Section from "@components/Section.astro";
 import Strike from "@components/Strike.astro";
 
-import { current, previous } from "@content";
+import { sort } from "@utils";
+
+const editions = await getCollection("editions").then(sort);
+
+const [current, previous] = editions;
 
 const { programme, speakers, hosts } = current.data;
 

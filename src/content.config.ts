@@ -1,4 +1,4 @@
-import { defineCollection, getCollection, reference, type CollectionEntry, type SchemaContext } from "astro:content";
+import { defineCollection, reference, type SchemaContext } from "astro:content";
 import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 
@@ -28,13 +28,11 @@ const Activity = z.discriminatedUnion("type", [
 
 export type Programme = z.infer<typeof Programme>;
 
-const Programme = z
-  .object({
-    time: z.iso.time(),
-    activities: Activity.array().optional(),
-    organizational: z.string().optional(),
-  })
-  .array();
+const Programme = z.object({
+  time: z.iso.time(),
+  activities: Activity.array().optional(),
+  organizational: z.string().optional(),
+}).array();
 
 export type Tier = z.infer<typeof Tier>;
 
@@ -50,13 +48,11 @@ const Role = z.enum(roles);
 
 export type Committee = z.infer<typeof Committee>;
 
-const Committee = z
-  .object({
-    name: z.string(),
-    role: Role,
-    contact: z.url().optional(),
-  })
-  .array();
+const Committee = z.object({
+  name: z.string(),
+  role: Role,
+  contact: z.url().optional(),
+}).array();
 
 const acknowledgements = `DomCode, for letting us take inspiration from their code of conduct;
 The staff of Utrecht University's CS department for their support in planning and promotion;
@@ -98,36 +94,36 @@ const Social = z.enum(socials);
 
 export type Contact = z.infer<typeof Contact>;
 
-const Contact = z
-  .object({
-    website: z.url(),
-    mail: z.email(),
-    socials: z.partialRecord(Social, z.url()),
-  })
-  .partial();
+const Contact = z.object({
+  website: z.url(),
+  mail: z.email(),
+  socials: z.partialRecord(Social, z.url()),
+}).partial();
 
 export type Person = z.infer<ReturnType<typeof Person>>;
 
 export type Partner = z.infer<ReturnType<typeof Partner>>;
 
-const Partner = ({ image }: SchemaContext) => z.object({
-  name: z.string(),
-  description: z.string().optional(),
-  logo: image(),
-  contact: Contact.optional(),
-});
+const Partner = ({ image }: SchemaContext) =>
+  z.object({
+    name: z.string(),
+    description: z.string().optional(),
+    logo: image(),
+    contact: Contact.optional(),
+  });
 
 const partners = defineCollection({
   loader: glob({ pattern: "[^_]*.md", base: "./src/content/partners/" }),
   schema: Partner,
 });
 
-const Person = ({ image }: SchemaContext) => z.object({
-  name: z.string(),
-  description: z.string().optional(),
-  portrait: image().optional(),
-  contact: Contact.optional(),
-});
+const Person = ({ image }: SchemaContext) =>
+  z.object({
+    name: z.string(),
+    description: z.string().optional(),
+    portrait: image().optional(),
+    contact: Contact.optional(),
+  });
 
 const people = defineCollection({
   loader: glob({ pattern: "[^_]*.md", base: "./src/content/people/" }),
@@ -150,14 +146,15 @@ const talks = defineCollection({
 
 export type Venue = z.infer<ReturnType<typeof Venue>>;
 
-const Venue = ({ image }: SchemaContext) => z.object({
-  name: z.string(),
-  description: z.string().optional(),
-  image: image(),
-  address: z.string().transform((address) => address.trim().split("\n")),
-  directions: z.url(),
-  embed: z.url(),
-});
+const Venue = ({ image }: SchemaContext) =>
+  z.object({
+    name: z.string(),
+    description: z.string().optional(),
+    image: image(),
+    address: z.string().transform((address) => address.trim().split("\n")),
+    directions: z.url(),
+    embed: z.url(),
+  });
 
 const venues = defineCollection({
   loader: glob({ pattern: "[^_]*.md", base: "./src/content/venues/" }),
@@ -186,10 +183,3 @@ export const collections = {
   venues,
   workshops,
 };
-
-const epoch = ({ data }: CollectionEntry<"editions">) => data.date?.getTime() || Number.POSITIVE_INFINITY;
-
-const entries = await getCollection("editions").then((editions) => editions.sort((a, b) => epoch(b) - epoch(a)));
-
-export const [current, ...older] = entries;
-export const [previous] = older;
