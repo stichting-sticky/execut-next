@@ -74,7 +74,7 @@ const Edition = z.object({
   hosts: reference("people").array().optional(),
   partners: z.partialRecord(Tier, reference("partners").array()).optional(),
   venue: reference("venues").optional(),
-  committee: Committee,
+  committee: Committee.optional(),
   acknowledgements: z
     .string()
     .transform((val) => val.trim())

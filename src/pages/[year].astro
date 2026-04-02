@@ -72,14 +72,16 @@ highlights &&= highlights.replace("/watch?v=", "/embed/") + "?controls=0";
     </Section>
   ))}
 
-  <Section heading="Committee" id="committee">
-    <ul class="bullet" role="list">
-      {committee.map(({ name, role, contact }) => (
-        <li>
-          <a class="link" href={contact}>{name}</a>
-          <span class="text-foreground-highlight dark:text-subtle-highlight capitalize">{role}</span>
-        </li>
-      ))}
-    </ul>
-  </Section>
+  {committee && (
+    <Section heading="Committee" id="committee">
+      <ul class="bullet" role="list">
+        {committee.map(({ name, role, contact }) => (
+          <li>
+            <a class="link" href={contact}>{name}</a>
+            <span class="text-foreground-highlight dark:text-subtle-highlight capitalize">{role}</span>
+          </li>
+        ))}
+      </ul>
+    </Section>
+  )}
 </Layout>

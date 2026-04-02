@@ -40,11 +40,11 @@ const archivedYears = [2018, 2019, 2020, 2021, 2022];
 
   <Section heading="Committee" id="committee">
     <Paragraph>
-      The organising committee consists of {committee.length} members, all of whom are students of computing- and information sciences at Utrecht University:
+      The organising committee consists of {committee ? committee.length : "a number of"} members, all of whom are students of computing- and information sciences at Utrecht University.
     </Paragraph>
 
     <ul class="bullet" role="list">
-      {committee.map(({ name, role, contact }) => (
+      {committee?.map(({ name, role, contact }) => (
         <li>
           <a class="link" href={contact}>{name}</a>
           <span class="text-foreground-highlight dark:text-subtle-highlight capitalize">{role}</span>
@@ -71,7 +71,7 @@ const archivedYears = [2018, 2019, 2020, 2021, 2022];
         const { name, date, committee } = data;
 
         const names = committee
-          .map(({ name }) => name)
+          ?.map(({ name }) => name)
           .reduce((acc, val, i) => [acc, i === committee.length - 1 ? ", and " : ", ", val].join(""));
 
         return (
