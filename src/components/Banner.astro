@@ -1,4 +1,6 @@
 ---
+import Container from "@components/Container.astro";
+
 import { type Notification } from "@content";
 
 type Props = Notification;
@@ -8,10 +10,16 @@ const { message, anchor } = Astro.props;
 const [first, second, ...rest] = message;
 ---
 
-<a class="-mx-1 flex flex-col items-start font-mono font-bold text-white sm:-mx-2" href={anchor}>
-  <span class="bg-tertiary flex p-6 text-6xl lg:p-8 lg:text-8xl">{first}</span>
+<Container>
+  <a class="relative -mx-1 flex flex-col items-start font-mono font-bold text-white sm:-mx-2" href={anchor}>
+    {first && <span class="bg-tertiary/80 flex p-2 text-4xl backdrop-blur-2xl @sm:p-4 @sm:text-6xl @lg:p-8 @xl:text-8xl">
+      {first}
+    </span>}
 
-  {second && <span class="bg-tertiary-lighter block p-4 text-4xl lg:p-6 lg:text-6xl">{second}</span>}
+    {second && <span class="bg-tertiary-lighter/80 block p-2 text-2xl backdrop-blur-2xl @sm:p-4 @sm:text-4xl @lg:p-6 @xl:text-6xl">
+      {second}
+    </span>}
 
-  {rest.map((line) => <span class="bg-tertiary-highlight block p-2 text-end text-2xl lg:p-4 lg:text-4xl">{line}</span>)}
-</a>
+    {rest.map((line) => <span class="bg-tertiary-highlight/80 block p-2 text-end text-xl backdrop-blur-2xl @sm:p-4 @sm:text-2xl @lg:p-6 @xl:text-6xl">{line}</span>)}
+  </a>
+</Container>

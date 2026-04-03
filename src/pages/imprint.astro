@@ -3,6 +3,8 @@ import { getCollection, getEntry } from "astro:content";
 
 import Layout from "@layouts/Base.astro";
 
+import Banner from "@components/Banner.astro";
+import Button from "@components/Button.astro";
 import Container from "@components/Container.astro";
 
 import { sort } from "@utils";
@@ -11,47 +13,65 @@ const editions = await getCollection("editions").then(sort);
 
 const current = editions.at(0)!;
 
-const { name, date, tickets, programme, speakers, venue } = current.data;
-
-const actions: [string, string][] = [];
-
-if (tickets) actions.push(["Get your ticket!", tickets]);
-if (programme) actions.push(["View programme", "/programme"]);
-if (speakers) actions.push(["Get to know our speakers", "/speakers"]);
-if (venue) actions.push(["Find your way to the venue", "/venue"]);
+const { name, date, tickets, notification, venue } = current.data;
 ---
 
-<Layout class="bg-primary-highlight/40">
-  <section class="-mt-22 pt-22 pb-8 min-h-screen content-center lg:w-lg  mx-auto text-center">
-    <Container>
-      <div class="flex flex-col gap-4 sm:gap-8">
-        <span class="text-primary font-mono text-4xl font-bold sm:text-5xl">
-          {name}
-        </span>
-
-        {date && (
-          <span class="text-primary-lighter font-mono text-4xl font-bold sm:text-5xl">
-            {new Intl.DateTimeFormat("en-GB", {
-              day: "numeric",
-              month: "long",
-            }).format(date)}
+<Layout class="from-primary/80 via-accent/60 to-subtle-highlight dark:bg-primary-lighter dark:via-accent-lighter/80 dark:to-foreground-highlight bg-linear-to-tl via-25% to-50%">
+  <main class="-mt-22 flex min-h-screen items-end-safe justify-around overflow-hidden pt-22 pb-8 will-change-transform sm:items-center">
+    <div class="@container relative z-10 flex max-w-lg flex-1 flex-col gap-4">
+      <Container>
+        <heading class="block font-mono leading-14 font-bold *:bg-white/40 *:-m-2 *:px-2 *:first:pt-2 *:last:pb-2 sm:leading-18">
+          <span class="text-primary text-4xl sm:text-5xl">
+            {name}
+            <br />
           </span>
-        )}
 
-        {venue && (
-          <span class="text-primary-highlight font-mono text-4xl font-bold sm:text-5xl">
-            {await getEntry(venue).then((venue) => venue.data.name)}
-          </span>
-        )}
-      </div>
+          {date && (
+            <span class="text-primary-lighter text-4xl sm:text-5xl">
+              {new Intl.DateTimeFormat("en-GB", {
+                day: "numeric",
+                month: "long",
+              }).format(date)}
+              <br />
+            </span>
+          )}
 
-      <div class="mt-8 flex flex-col gap-2">
-        {actions.map(([title, anchor]) => (
-          <a class="link text-background bg-primary inline-block p-4 before:font-mono before:content-['??=_']" href={anchor}>
-            {title}
-          </a>
-        ))}
-      </div>
-    </Container>
-  </section>
+          {venue && (
+            <span class="text-primary-highlight text-4xl sm:text-5xl">
+              {await getEntry(venue).then((venue) => venue.data.name)}
+              <br />
+            </span>
+          )}
+        </heading>
+      </Container>
+
+      {notification && <Banner {...notification} />}
+
+      <Container>
+        <div class="*:bg-secondary/80 *:dark:bg-secondary-lighter/80 mb-2 flex flex-col gap-2 text-center *:backdrop-blur sm:mb-4 sm:gap-4">
+          {tickets && (
+            <Button as="a" href={tickets}>
+              <span class="block p-1 text-xl sm:p-2">Get your ticket!</span>
+            </Button>
+          )}
+
+          <Button as="a" href="https://www.instagram.com/execut_conferenc">
+            <span class="block p-1 text-xl sm:p-2">Instagram</span>
+          </Button>
+
+          <Button as="a" href="https://www.linkedin.com/company/execut-conference">
+            <span class="block p-1 text-xl sm:p-2">LinkedIn</span>
+          </Button>
+        </div>
+      </Container>
+    </div>
+
+    <div class="absolute inset-0 -bottom-24 -left-2/3 sm:left-0 opacity-80 dark:opacity-60">
+      <iframe
+        class="size-full"
+        loading="lazy"
+        title="exec(ut) logo"
+        src="https://my.spline.design/glasscube-CmxGfmC2hMcKu65tdK70LS5N" />
+    </div>
+  </main>
 </Layout>
