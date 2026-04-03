@@ -53,6 +53,11 @@ talks:
   - ai-for-seals
   - video-game-ux-affinity-vs-contrast
   - the-future-of-ai
+workshops:
+  - hackathons
+  - building-an-ai-powered-pub-quiz-master
+  - sollicitatie-training
+  - capaciteitsmanagement-in-de-zorg.md
 speakers:
   - jaya-baloo
   - rik-arends
@@ -63,11 +68,6 @@ speakers:
 hosts:
   - alma-liezenga
   - rob-de-wit
-workshops:
-  - hackathons
-  - building-an-ai-powered-pub-quiz-master
-  - sollicitatie-training
-  - capaciteitsmanagement-in-de-zorg.md
 partners:
   gold:
     - bpm-company

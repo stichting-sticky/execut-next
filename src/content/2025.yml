@@ -54,6 +54,10 @@ talks:
   - rehabilitation-technologies
   - got-a-problem-serious-gaming-is-here-to-help
   - validation-crisis
+workshops:
+  - bring-your-avatar-to-life-with-agentic-ai
+  - transform-healthcare-with-smart-ict
+  - turn-ideas-into-reality-with-pega-genai-blueprint
 speakers:
   - dylan-beattie
   - maikel-meeuwse
@@ -63,10 +67,6 @@ speakers:
   - brenno-de-winter
 hosts:
   - fiep-warmerdam
-workshops:
-  - bring-your-avatar-to-life-with-agentic-ai
-  - transform-healthcare-with-smart-ict
-  - turn-ideas-into-reality-with-pega-genai-blueprint
 partners:
   platinum:
     - chipsoft

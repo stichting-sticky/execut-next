@@ -54,6 +54,10 @@ talks:
   - european-values-maps-visualization-of-large-opinion-spaces
   - towards-volumetric-video-conferencing
   - procedural-content-creation-at-ea
+workshops:
+  - low-code-with-pega
+  - knowledge-session-with-levarne
+  - deep-dive-into-scrum-and-agile
 speakers:
   - burcu-karagol-ayan
   - tim-van-der-wiel
@@ -64,10 +68,6 @@ speakers:
   - mat-suarez
 hosts:
   - juney-dijkstra
-workshops:
-  - low-code-with-pega
-  - knowledge-session-with-levarne
-  - deep-dive-into-scrum-and-agile
 partners:
   platinum:
     - bpm-company

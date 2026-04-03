@@ -47,6 +47,10 @@ talks:
   - storytelling-in-an-autonomous-game-world
   - low-code-platforms-tales-from-a-software-architect
   - view-the-world-through-apis
+workshops:
+  - electronic-data-exchange-in-healthcare
+  - build-your-own-rpa-process-for-real-time-stock-prices
+  - complex-puzzles-in-finance-and-data-science
 speakers:
   - marc-somberg
   - hinda-haned
@@ -56,10 +60,6 @@ speakers:
   - mike-joosten
 hosts:
   - sara-lusini
-workshops:
-  - electronic-data-exchange-in-healthcare
-  - build-your-own-rpa-process-for-real-time-stock-prices
-  - complex-puzzles-in-finance-and-data-science
 partners:
   platinum:
     - chipsoft

@@ -1,18 +1,88 @@
 name: exec(ut) 2026
 date: 2026-03-26
 # tickets: https://tickets.execut.nl/2026/
-notification:
-  message: |
-    Join our launch
-    7 January 2026 17:30
-    De Vagant
-  anchor: https://koala.svsticky.nl/activities/2152
 incentives:
   - [ topics, diverse IT-related talks ]
   - [ speakers, 6 ]
   - [ networking, ample opportunities ]
-  - [ attendees, 400+ ]
+  - [ attendees, ~400 ]
   - [ location, Utrecht ]
+partners:
+  gold:
+    - chipsoft
+  silver:
+    - harvest
+    - brunel
+    - bpm-company
+    - capgemini
+    - defensie
+    - netcompany
+    - yer
+    - jetbrains
+  introduction:
+    - uwcomputerstudent
+venue: tivoli-vredenburg
+programme:
+  - time: 09:00
+    organizational: Registration
+  - time: 09:30
+    organizational: Coffee
+  - time: 09:45
+    organizational: Opening
+  - time: 10:15
+    activities:
+      - type: talk
+        activity: stairway-to-heaven-software-development
+  - time: 11:10
+    organizational: Coffee
+  - time: 11:40
+    activities:
+      - type: talk
+        activity: decisions-under-fire-dilemmas-of-a-cybercrisis
+  - time: 12:20
+    organizational: Lunch
+  - time: 13:20
+    activities:
+      - type: talk
+        activity: quantum-computing-2026
+      - type: workshop
+        activity: ai-in-healthcare
+  - time: 14:10
+    activities:
+      - type: talk
+        activity: testers-dilemma-in-the-modern-world
+  - time: 14:50
+    organizational: Coffee
+  - time: 15:20
+    activities:
+      - type: talk
+        activity: building-a-startup
+  - time: 16:10
+    activities:
+      - type: talk
+        activity: the-rami-talk
+  - time: 17:00
+    organizational: Closing
+  - time: 17:15
+    organizational: Drinks
+talks:
+  - stairway-to-heaven-software-development
+  - decisions-under-fire-dilemmas-of-a-cybercrisis
+  - quantum-computing-2026
+  - testers-dilemma-in-the-modern-world
+  - building-a-startup
+  - the-rami-talk
+workshops:
+  - ai-in-healthcare
+speakers:
+  - hanno-embregts
+  - lisa-de-wilde
+  - rami-ismail
+  - camille-de-valk
+  - tanja-vos
+  - willem-pino
+hosts:
+  - crystal-reijnen
 committee:
   - name: Sem van Nieuwenhuizen
     role: chair
