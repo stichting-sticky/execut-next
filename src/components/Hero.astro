@@ -1,30 +1,43 @@
 ---
+import { type CollectionEntry } from "astro:content";
+
 import Banner from "@components/Banner.astro";
 import Button from "@components/Button.astro";
 import Incentives from "@components/Incentives.astro";
 import Section from "@components/Section.astro";
 
-import { current } from "@content";
+type Props = {
+  edition: CollectionEntry<"editions">;
+};
 
-const { tickets, notification, incentives } = current.data;
+const { edition } = Astro.props;
+
+const { tickets, notification, incentives } = edition.data;
 ---
 
-<Section>
-  <article class="not-last:mb-8">
-    <h1 class="text-primary mb-4 font-mono text-5xl font-bold sm:mb-8 sm:text-6xl">
-      A conference for and by IT students.
-    </h1>
+<header class="from-primary/80 via-accent/60 to-subtle-highlight dark:from-primary-lighter dark:via-accent-lighter/80 dark:to-foreground-highlight -mt-22 flex min-h-screen flex-col justify-end-safe overflow-hidden bg-linear-to-tl via-25% to-50% will-change-transform">
+  <div class="@container relative z-10 mt-22">
+    <Section>
+      <code class="text-background bg-primary-lighter/60 dark:bg-foreground/40 mb-4 inline-block p-2 backdrop-blur before:content-['`'] after:content-['`']">exec(ut)</code>
 
-    <p class="text-primary-lighter mb-4 text-2xl leading-relaxed sm:mb-8">
-      For those willing to look further than their own classroom. We want to work together, inspire each other, and commit ourselves to a better tomorrow. Besides a range of interesting talks exec(ut) provides great networking opportunities to those attending.
-    </p>
+      <h1 class="text-primary dark:text-primary-lighter mb-4 font-mono text-5xl font-bold sm:mb-8 sm:text-6xl">
+        A conference for and by IT students.
+      </h1>
 
-    {tickets && (
-      <Button as="a" href={tickets}>
-        <span class="block p-4 text-xl before:content-['??=_']">Get your ticket!</span>
-      </Button>
-    )}
-  </article>
+      <p class="text-primary dark:text-primary-lighter -m-2 mb-4 p-2 text-xl leading-relaxed sm:mb-8 sm:text-2xl md:max-w-2/3">
+        For those willing to look further than their own classroom. We want to work together, inspire each other, and commit ourselves to a better tomorrow. Besides a range of interesting talks exec(ut) provides great networking opportunities to those attending.
+      </p>
+
+      {tickets && (
+        <Button as="a" href={tickets}>
+          <span class="block p-4 text-xl before:content-['??=_']">Get your ticket!</span>
+        </Button>
+      )}
+    </Section>
+
+    <Section>
+      {notification && <Banner {...notification} />}
+    </Section>
 
   {notification && <Banner {...notification} />}
 

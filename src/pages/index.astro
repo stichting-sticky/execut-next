@@ -31,7 +31,7 @@ if (!speakers) people = await getEntries(previous.data.speakers ?? []);
 ---
 
 <Layout>
-  <Hero />
+  <Hero edition={current} />
 
   <Section heading="Programme" anchor="programme">
     <Paragraph>
