@@ -16,9 +16,9 @@ const [current, ...older] = editions;
 const { committee, acknowledgements } = current.data;
 
 const address = [
-  "attn. exec(ut)",
-  "Princetonplein 5",
-  "3584 CC Utrecht",
+  "Buys Ballotgebouw 2.81",
+  "Winthontlaan 30 C",
+  "3526 KV Utrecht",
   "The Netherlands",
 ];
 
@@ -28,13 +28,14 @@ const archivedYears = [2018, 2019, 2020, 2021, 2022];
 <Layout title="About Us">
   <Section heading="About Us">
     <Paragraph>
-      exec(ut) is an event organised by <a class="link" href="https://stichtingsticky.nl">Stichting Sticky</a>. It is a conference for and by students, offering a glimpse at the wondrous world of IT beyond the university. We strive to provide a diverse programme and show how exciting conferences can be. Our main way of contact is through our mail address: <a class="link" href="mailto:conference@execut.nl">conference@execut.nl</a>.
+      exec(ut) is an event organised by <a class="link" href="https://stichtingsticky.nl">Stichting Sticky</a>. It is a conference for and by students, offering a glimpse at the wondrous world of IT beyond the university. We strive to provide a diverse programme and show how exciting conferences can be. Our main way of contact is through our mail address: <a class="link" href="mailto:conference@execut.nl">conference@execut.nl</a>. We typically respond within 24 to 48 hours.
     </Paragraph>
 
-    <Subheading>Address</Subheading>
+    <Subheading>Postal Address</Subheading>
 
     <address class="mb-2">
-      {[<strong>Stichting Sticky</strong>, ...address].reduce((acc, x) => [...acc, x, <br />], [])}
+      {[<strong>Stichting Sticky attn. exec(ut)</strong>, ...address]
+        .reduce((acc, x) => [...acc, x, <br />], [])}
     </address>
   </Section>
 
