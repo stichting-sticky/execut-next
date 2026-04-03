@@ -1,5 +1,6 @@
 ---
 name: Capgemini
+description: Get the future you want
 tier: silver
 logo: ../../assets/partners/capgemini.png
 contact:

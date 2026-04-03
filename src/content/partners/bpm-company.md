@@ -1,6 +1,6 @@
 ---
 name: BPM Company
-description: IT Consulting and Full-Stack Development
+description: Driving digital transformation through process automation.
 tier: gold
 logo: ../../assets/partners/bpm-company.svg
 contact:

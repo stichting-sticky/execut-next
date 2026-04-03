@@ -1,7 +1,10 @@
 ---
 name: Brunel
+description: Connecting specialists to pioneering projects.
 tier: silver
 logo: ../../assets/partners/brunel.png
+contact:
+  website: https://brunel.net/
 ---
 
 ## Build a rich resume in no time
