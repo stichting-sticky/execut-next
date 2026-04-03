@@ -35,9 +35,9 @@ const { Content } = await render(person);
 
     <Subheading anchor={anchor}>{name}</Subheading>
 
-    {contact && <Socials contact={contact} />}
-
     {description && <Description description={description} />}
+
+    {contact && <Socials contact={contact} />}
 
     <Formatted>
       <Content />
