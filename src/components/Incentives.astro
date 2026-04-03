@@ -1,5 +1,5 @@
 ---
-import Section from "@components/Section.astro";
+import Container from "@components/Container.astro";
 
 import { type Incentives } from "@content";
 
@@ -10,13 +10,15 @@ type Props = {
 const { incentives } = Astro.props;
 ---
 
-<Section>
-  <figure class="grid grid-cols-2 gap-4 sm:gap-6 sm:text-center lg:grid-cols-none lg:grid-flow-col">
-    {incentives.map(([title, figure]) => (
-      <div class="flex flex-col sm:text-center lg:text-left">
-        <small class="text-primary-lighter font-mono text-sm">{title}</small>
-        <span class="text-foreground-lighter mt-2 text-lg font-bold">{figure}</span>
-      </div>
-    ))}
-  </figure>
-</Section>
+<div class="bg-background dark:bg-foreground my-8">
+  <Container>
+    <figure class="grid grid-cols-2 gap-4 py-4 backdrop-blur-xl sm:gap-6 sm:text-center md:py-6 lg:grid-flow-col lg:grid-cols-6 lg:py-8">
+      {incentives.map(([title, value]) => (
+        <div class="flex flex-col nth-[4n+1]:text-primary nth-[4n+2]:text-accent nth-[4n+3]:text-secondary nth-[4n+4]:text-tertiary dark:nth-[4n+1]:text-primary-lighter dark:nth-[4n+2]:text-accent-lighter dark:nth-[4n+3]:text-secondary-lighter dark:nth-[4n+4]:text-tertiary-lighter sm:text-center lg:text-left">
+          <span class="font-mono text-sm">{title}</span>
+          <span class="mt-2 text-lg font-bold">{value}</span>
+        </div>
+      ))}
+    </figure>
+  </Container>
+</div>

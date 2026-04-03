@@ -18,10 +18,12 @@ const { tickets, notification, incentives } = edition.data;
 <header class="from-primary/80 via-accent/60 to-subtle-highlight dark:from-primary-lighter dark:via-accent-lighter/80 dark:to-foreground-highlight -mt-22 flex min-h-screen flex-col justify-end-safe overflow-hidden bg-linear-to-tl via-25% to-50% will-change-transform">
   <div class="@container relative z-10 mt-22">
     <Section>
-      <code class="text-background bg-primary-lighter/60 dark:bg-foreground/40 mb-4 inline-block p-2 backdrop-blur before:content-['`'] after:content-['`']">exec(ut)</code>
+      <code class="text-background bg-primary-lighter/60 dark:bg-foreground/40 mb-4 text-xl inline-block p-1 backdrop-blur before:content-['`'] after:content-['`']">exec(ut)</code>
 
-      <h1 class="text-primary dark:text-primary-lighter mb-4 font-mono text-5xl font-bold sm:mb-8 sm:text-6xl">
-        A conference for and by IT students.
+      <h1 class="mb-4">
+        <mark class="text-primary dark:text-primary-lighter -my-2 bg-white/40 py-2 font-mono text-5xl leading-22 font-bold sm:mb-8 sm:text-6xl sm:leading-27">
+          A conference for and by IT students.
+        </mark>
       </h1>
 
       <p class="text-primary dark:text-primary-lighter -m-2 mb-4 p-2 text-xl leading-relaxed sm:mb-8 sm:text-2xl md:max-w-2/3">
@@ -35,11 +37,12 @@ const { tickets, notification, incentives } = edition.data;
       )}
     </Section>
 
-    <Section>
-      {notification && <Banner {...notification} />}
-    </Section>
+    {notification && <Banner {...notification} />}
 
-  {notification && <Banner {...notification} />}
+    {incentives && <Incentives incentives={incentives} />}
+  </div>
 
-  {incentives && <Incentives incentives={incentives} />}
-</Section>
+  <div class="absolute inset-0 -bottom-24 opacity-80 dark:opacity-60">
+    <iframe class="size-full" loading="lazy" title="exec(ut) logo" src="https://my.spline.design/glasscube-CmxGfmC2hMcKu65tdK70LS5N"></iframe>
+  </div>
+</header>
